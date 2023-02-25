@@ -16,16 +16,30 @@ const NavigationBar = () => {
       className={navbarScroll ? "custom-navbar scrolled" : "custom-navbar"}
       expand="lg"
       sticky="top"
+      variant="dark"
     >
       <Container>
-        <Navbar.Brand href="#home">MoodJournal</Navbar.Brand>
+        <Navbar.Brand
+          className={`custom-navbar-brand ${navbarScroll ? "scrolled" : ""}`}
+          href="#home"
+        >
+          MoodJournal
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={NavLink} to="/">
+            <Nav.Link
+              as={NavLink}
+              to="/"
+              className={`custom-navbar-link ${navbarScroll ? "scrolled" : ""}`}
+            >
               Home
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/contact-us">
+            <Nav.Link
+              as={NavLink}
+              to="/contact-us"
+              className={`custom-navbar-link ${navbarScroll ? "scrolled" : ""}`}
+            >
               Contact Us
             </Nav.Link>
           </Nav>
