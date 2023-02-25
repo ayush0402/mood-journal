@@ -1,19 +1,107 @@
-/* Header */
-.header{
-    background-image: url("assets/bg_1@2x.png"), url("assets/Bg_2@2x.png");
-    min-height: 1000px;
-    background-repeat: no-repeat;
-    background-repeat: no-repeat;
-    background-size: 167px, 65%;
-    background-position: left bottom, right top; 
+/* https://colorhunt.co/palette/f6e7d8f68989c65d7b874356
+Primary: #874356
+PrimaryLight: #C65D7B
+Secondary: #F6E7D8
+Accent: #F68989 */
+
+body {
+  background-color: #f6e7d8;
 }
 
 /* Navigation Bar */
 .custom-navbar {
-    transition: 0.6s;
+  background-color: #874356;
+  transition: 0.6s;
 }
 
-.custom-navbar.scrolled{
-    background-color: green;
+.custom-navbar.scrolled {
+  background-color: #f6e7d8;
+}
 
+.custom-navbar-brand {
+  color: #f6e7d8;
+  transition: 0.6s;
+}
+
+.custom-navbar-brand.scrolled {
+  color: #874356;
+}
+
+.custom-navbar-link {
+  color: #f6e7d8;
+  transition: 0.6s;
+}
+
+.custom-navbar-link.scrolled {
+  color: #874356;
+}
+
+/* Home Page */
+
+/* Header */
+.header {
+  min-height: 500px;
+  background-color: #874356;
+  color: #f6e7d8;
+}
+
+.header-container {
+  padding: 100px 0px 150px 0px;
+}
+
+.header-text {
+  margin: auto 0px;
+  padding: 0 7%;
+}
+
+.header Button {
+  margin-top: 10px;
+  color: black;
+  background-color: #f68989;
+  border-color: #874356;
+}
+.header-image {
+  height: 500px;
+}
+
+/* Features */
+.features {
+  text-align: center;
+  padding: 3% 10% 3%;
+}
+
+.features-list {
+  justify-content: space-around;
+}
+
+/* Testimonial */
+.testimonials {
+  background-color: #c65d78;
+}
+
+.carousel {
+  padding: 7% 12%;
+  min-height: 500px;
+}
+
+.testimony {
+  text-align: center;
+}
+
+.testimony-review {
+  margin: 3% 0 50px 0;
+}
+
+/* FAQs */
+
+.faqs {
+  background-color: #f6e7d8;
+  min-height: 500px;
+}
+
+/* Footer */
+
+.footer {
+  background-color: #874356;
+  min-height: 200px;
 }
