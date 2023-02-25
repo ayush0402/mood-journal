@@ -17,3 +17,25 @@
     background-color: green;
 
 }
+.page-header{
+    padding : 8px 8px 8px 8px;
+    /* border: 2px red solid; */
+}
+.contact-content{
+    /* border: 2px green solid; */
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+.contact-widget{
+    margin: 10px 10px 10px 10px;
+    padding: 8px 8px 8px 8px;
+    width: 50%;
+    /* border: 2px solid blue; */
+    display: flex;
+    justify-content: space-around;
+}
+.contact-form-wrapper{
+    /* border: 2px blue solid; */
+    padding : 10px 10px 10px 10px;
+}
