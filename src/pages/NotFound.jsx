@@ -1,5 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 const NotFound = () => {
-  return <h1>Not Found 404</h1>;
+  let navigate = useNavigate();
+
+  return(
+    <div>
+      
+    </div>
+  )
 };
 
 export default NotFound;

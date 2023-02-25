@@ -3,9 +3,14 @@ Primary: #874356
 PrimaryLight: #C65D7B
 Secondary: #F6E7D8
 Accent: #F68989 */
+/* 
+font-family: 'Lilita One', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Ubuntu', sans-serif; */
 
 body {
   background-color: #f6e7d8;
+  font-family: "Ubuntu", "sans-serif";
 }
 
 /* Navigation Bar */
@@ -46,12 +51,17 @@ body {
 }
 
 .header-container {
-  padding: 100px 0px 150px 0px;
+  padding: 3% 3% 5% 2%;
 }
 
 .header-text {
   margin: auto 0px;
-  padding: 0 7%;
+}
+
+.header-brand {
+  font-family: "Lalita One", cursive;
+  font-size: 80px;
+  font-weight: 900;
 }
 
 .header Button {
@@ -60,18 +70,11 @@ body {
   background-color: #f68989;
   border-color: #874356;
 }
-.header-image {
-  height: 500px;
-}
 
 /* Features */
 .features {
   text-align: center;
   padding: 3% 10% 3%;
-}
-
-.features-list {
-  justify-content: space-around;
 }
 
 /* Testimonial */

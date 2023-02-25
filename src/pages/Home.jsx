@@ -1,8 +1,11 @@
 import ControlledCarousel from "../components/ControlledCarousel";
 import NavigationBar from "../components/NavigationBar";
 import { Button, Container, Row, Col } from "react-bootstrap";
-import header_image from "../assets/smiley_calendar.png";
-import feature_image from "../assets/smiley_calendar.png";
+import header_image from "../assets/header_image.svg";
+import feature1 from "../assets/typing.svg";
+import feature2 from "../assets/calendar.svg";
+import feature3 from "../assets/reading.svg";
+import feature4 from "../assets/meditation.svg";
 
 const Home = ({ testimonies }) => {
   return (
@@ -12,8 +15,10 @@ const Home = ({ testimonies }) => {
         <Container className="header-container">
           <Row>
             <Col className="header-text">
-              <h1>MoodJournal</h1>
-              <p>A digital way to track and uplift your mood.</p>
+              <h1 className="header-brand">MoodJournal</h1>
+              <p className="header-motto">
+                A digital way to track and uplift your mood.
+              </p>
               <div className="header-buttons">
                 <Button>Log In</Button>
                 <Button style={{ marginLeft: 10 }}>Sign Up</Button>
@@ -33,7 +38,7 @@ const Home = ({ testimonies }) => {
         <h2>Features</h2>
         <Row className="features-list">
           <Col className="feature-item">
-            <img src={feature_image} alt="feature_1" />
+            <img src={feature1} alt="feature_1" />
             <h3>Feature 1</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
@@ -41,7 +46,7 @@ const Home = ({ testimonies }) => {
             </p>
           </Col>
           <Col className="feature-item">
-            <img src={feature_image} alt="feature_2" />
+            <img src={feature2} alt="feature_2" />
             <h3>Feature 2</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
@@ -49,7 +54,12 @@ const Home = ({ testimonies }) => {
             </p>
           </Col>
           <Col className="feature-item">
-            <img src={feature_image} alt="feature_3" />
+            {/* #TODO : Make responsive */}
+            <img
+              src={feature3}
+              alt="feature_3"
+              style={{ marginTop: 50, marginBottom: 70 }}
+            />
             <h3>Feature 3</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
@@ -57,7 +67,7 @@ const Home = ({ testimonies }) => {
             </p>
           </Col>
           <Col className="feature-item">
-            <img src={feature_image} alt="feature_4" />
+            <img src={feature4} alt="feature_4" />
             <h3>Feature 4</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
