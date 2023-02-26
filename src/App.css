@@ -110,6 +110,9 @@ body {
     padding : 8px 8px 8px 8px;
     /* border: 2px red solid; */
 }
+
+/* Contact Us Page */
+
 .contact-content{
     /* border: 2px green solid; */
     display: flex;
@@ -127,4 +130,23 @@ body {
 .contact-form-wrapper{
     /* border: 2px blue solid; */
     padding : 10px 10px 10px 10px;
+}
+.btn.btn-primary.mb-4{
+  margin-top: 10px;
+  /* border: 2px solid red; */
+}
+.text-center{
+  /* border: 2px blue solid; */
+
+}
+.form-footer-text{
+  /* border: 2px solid red; */
+  margin-top: -17px;
+}
+.col-md-6{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.contact-us-container{
+  padding: 3% 5% 3% ;
 }

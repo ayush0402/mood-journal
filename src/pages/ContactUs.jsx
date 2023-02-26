@@ -7,7 +7,7 @@ const ContactUs = () => {
 
     <>
       <NavigationBar/>
-      <Container>
+      <Container className="contact-us-container">
         <section className="page-header">
                 <h2>Tell us about yourself</h2>
                 <h5>Whether you have questions or you would just like to say hello, contact us.</h5>
