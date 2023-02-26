@@ -2,7 +2,7 @@ import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const NavigationBar = () => {
   let [navbarScroll, setNavbarScroll] = useState(false);
@@ -20,8 +20,9 @@ const NavigationBar = () => {
     >
       <Container>
         <Navbar.Brand
+          as={NavLink}
           className={`custom-navbar-brand ${navbarScroll ? "scrolled" : ""}`}
-          href="#home"
+          to="/"
         >
           MoodJournal
         </Navbar.Brand>
@@ -41,6 +42,13 @@ const NavigationBar = () => {
               className={`custom-navbar-link ${navbarScroll ? "scrolled" : ""}`}
             >
               Contact Us
+            </Nav.Link>
+            <Nav.Link
+              as={NavLink}
+              to="/dashboard"
+              className={`custom-navbar-link ${navbarScroll ? "scrolled" : ""}`}
+            >
+              Dashboard
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
