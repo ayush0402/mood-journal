@@ -1,11 +1,17 @@
 import ControlledCarousel from "../components/ControlledCarousel";
 import NavigationBar from "../components/NavigationBar";
-import { Button, Container, Row, Col } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { NavLink } from "react-router-dom";
 import header_image from "../assets/header_image.svg";
 import feature1 from "../assets/typing.svg";
 import feature2 from "../assets/calendar.svg";
 import feature3 from "../assets/reading.svg";
 import feature4 from "../assets/meditation.svg";
+import contact_image from "../assets/contact.svg";
+import { FaHeart } from "react-icons/fa";
 
 const Home = ({ testimonies }) => {
   return (
@@ -14,7 +20,7 @@ const Home = ({ testimonies }) => {
       <div className="header">
         <Container className="header-container">
           <Row>
-            <Col className="header-text">
+            <Col xs="12" lg="6" className="header-text">
               <h1 className="header-brand">MoodJournal</h1>
               <p className="header-motto">
                 A digital way to track and uplift your mood.
@@ -24,7 +30,7 @@ const Home = ({ testimonies }) => {
                 <Button style={{ marginLeft: 10 }}>Sign Up</Button>
               </div>
             </Col>
-            <Col>
+            <Col xs="12" lg="6">
               <img
                 src={header_image}
                 className="header-image"
@@ -37,28 +43,28 @@ const Home = ({ testimonies }) => {
       <section className="features">
         <h2>Features</h2>
         <Row className="features-list">
-          <Col className="feature-item">
-            <img src={feature1} alt="feature_1" />
+          <Col md="6" lg="3">
+            <img src={feature1} alt="feature_1" className="feature-image" />
             <h3>Feature 1</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
               voluptatibus voluptatem rerum beatae quae alias iste tempora.
             </p>
           </Col>
-          <Col className="feature-item">
-            <img src={feature2} alt="feature_2" />
+          <Col md="6" lg="3">
+            <img src={feature2} alt="feature_2" className="feature-image" />
             <h3>Feature 2</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
               voluptatibus voluptatem rerum beatae quae alias iste tempora.
             </p>
           </Col>
-          <Col className="feature-item">
-            {/* #TODO : Make responsive */}
+          <Col md="6" lg="3">
             <img
               src={feature3}
               alt="feature_3"
-              style={{ marginTop: 50, marginBottom: 70 }}
+              className="feature-image"
+              style={{ marginTop: 60, marginBottom: 60 }}
             />
             <h3>Feature 3</h3>
             <p>
@@ -66,24 +72,48 @@ const Home = ({ testimonies }) => {
               voluptatibus voluptatem rerum beatae quae alias iste tempora.
             </p>
           </Col>
-          <Col className="feature-item">
-            <img src={feature4} alt="feature_4" />
+          <Col md="6" lg="3">
+            <img src={feature4} alt="feature_4" className="feature-image" />
             <h3>Feature 4</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-              voluptatibus voluptatem rerum beatae quae alias iste tempora.
+              voluptatibus voluptatem rerum beatae quae alias diste tempora.
             </p>
           </Col>
         </Row>
       </section>
       <section className="testimonials">
         <ControlledCarousel testimonies={testimonies} />
+        <p className="testimonial-submit-text">
+          Want to share your thoughts as well? Tell us more{" "}
+          <NavLink className="testimonial-form-link" to="#">
+            here.
+          </NavLink>
+        </p>
       </section>
-      <section className="faqs">
-        <h3>FAQs</h3>
+      <section className="contact-section">
+        <Container>
+          <Row>
+            <Col xs="12" md="6">
+              <img
+                src={contact_image}
+                alt="contact"
+                className="contact-section-image"
+              />
+            </Col>
+            <Col xs="12" md="6" className="contact-section-text">
+              <h5>
+                Have any queries, suggestions or complaints?<br></br>Reach out
+                to us.
+              </h5>
+              <Button>Contact Us</Button>
+            </Col>
+          </Row>
+        </Container>
       </section>
+
       <section className="footer">
-        <h3>Footer</h3>
+        Made with <FaHeart style={{ color: "#F68989" }} /> at IIIT Lucknow.
       </section>
     </div>
   );

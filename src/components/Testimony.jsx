@@ -2,7 +2,7 @@ const Testimony = ({ testimony }) => {
   return (
     <div className="testimony">
       <p className="testimony-review">"{testimony.review}"</p>
-      <h4 className="testimony-author">{testimony.name}</h4>
+      <p className="testimony-author">~ {testimony.name}</p>
     </div>
   );
 };

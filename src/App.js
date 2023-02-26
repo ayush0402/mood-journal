@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import ContactUs from "./pages/ContactUs";
 import NotFound from "./pages/NotFound";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 function App() {
   const testimonies = [
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home testimonies={testimonies} />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

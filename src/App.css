@@ -41,6 +41,17 @@ body {
   color: #874356;
 }
 
+.custom-navbar-link.active {
+  color: #f6e7d8;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.custom-navbar-link.scrolled.active {
+  color: #874356;
+  font-weight: 600;
+  text-decoration: underline;
+}
 /* Home Page */
 
 /* Header */
@@ -68,7 +79,12 @@ body {
   margin-top: 10px;
   color: black;
   background-color: #f68989;
-  border-color: #874356;
+  border-color: black;
+}
+
+.header Button:hover {
+  background-color: #c65d78;
+  border-color: black;
 }
 
 /* Features */
@@ -79,12 +95,14 @@ body {
 
 /* Testimonial */
 .testimonials {
+  text-align: center;
   background-color: #c65d78;
+  padding: 3% 0 1%;
 }
 
 .carousel {
-  padding: 7% 12%;
-  min-height: 500px;
+  padding: 5% 15% 7%;
+  min-height: 200px;
 }
 
 .testimony {
@@ -95,16 +113,76 @@ body {
   margin: 3% 0 50px 0;
 }
 
-/* FAQs */
+.testimonial-submit-text {
+  margin-top: 12px;
+}
 
-.faqs {
+.testimonial-form-link {
+  color: #f6e7d8;
+}
+/* Contact Section */
+
+.contact-section {
   background-color: #f6e7d8;
-  min-height: 500px;
+  min-height: 300px;
+  padding: 5%;
+}
+
+.contact-section Button {
+  margin-top: 10px;
+  color: black;
+  background-color: #f68989;
+  border-color: black;
+}
+
+.contact-section Button:hover {
+  background-color: #c65d78;
+  border-color: black;
+}
+
+.contact-section-image {
+  max-width: 50%;
+  margin-left: 20%;
+}
+
+.contact-section-text {
+  margin: auto 0;
 }
 
 /* Footer */
 
 .footer {
   background-color: #874356;
-  min-height: 200px;
+  min-height: 100px;
+  font-weight: 600;
+  text-align: center;
+  padding: 40px;
+  color: #f6e7d8;
+}
+
+/* Dashboard */
+
+/* Not Found Page */
+.notfound-container {
+  text-align: center;
+}
+
+.notfound-container img {
+  width: 50%;
+}
+
+.notfound-container h3 {
+  margin: 20px auto 10px;
+}
+
+.notfound-container Button {
+  margin: 10px auto 20px;
+  color: black;
+  background-color: #f68989;
+  border-color: black;
+}
+
+.notfound-container Button:hover {
+  background-color: #c65d78;
+  border-color: black;
 }
