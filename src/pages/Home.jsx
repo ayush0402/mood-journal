@@ -12,8 +12,15 @@ import feature3 from "../assets/reading.svg";
 import feature4 from "../assets/meditation.svg";
 import contact_image from "../assets/contact.svg";
 import { FaHeart } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Home = ({ testimonies }) => {
+  let navigate = useNavigate();
+  
+  let goSignUp = ()=>{
+    navigate("/signup");
+  }
+
   return (
     <div className="home-page">
       <NavigationBar />
@@ -27,7 +34,7 @@ const Home = ({ testimonies }) => {
               </p>
               <div className="header-buttons">
                 <Button>Log In</Button>
-                <Button style={{ marginLeft: 10 }}>Sign Up</Button>
+                <Button style={{ marginLeft: 10 }} onClick={goSignUp}>Sign Up</Button>
               </div>
             </Col>
             <Col xs="12" lg="6">

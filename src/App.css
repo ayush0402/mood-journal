@@ -186,3 +186,73 @@ body {
   background-color: #c65d78;
   border-color: black;
 }
+
+.page-header{
+    padding : 8px 8px 8px 8px;
+    /* border: 2px red solid; */
+}
+
+/* Contact Us Page */
+
+.contact-content{
+    /* border: 2px green solid; */
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+.contact-widget{
+    margin: 10px 10px 10px 10px;
+    padding: 8px 8px 8px 8px;
+    width: 50%;
+    /* border: 2px solid blue; */
+    display: flex;
+    justify-content: space-around;
+}
+.contact-form-wrapper{
+    /* border: 2px blue solid; */
+    padding : 10px 10px 10px 10px;
+    margin-top: -2%;
+}
+.btn.btn-primary.mb-4{
+  margin-top: 10px;
+  /* border: 2px solid red; */
+}
+
+.form-footer-text{
+  /* border: 2px solid red; */
+  margin-top: -17px;
+}
+.col-md-6{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.contact-us-container{
+  padding: 3% 5% 3% ;
+}
+
+/* SignUp Page */
+
+/* SignUp image */
+
+.signup-form-section{
+  text-align: center;
+  margin: auto auto;
+}
+
+.signup-img-section{
+  width: 50%;
+}
+
+.signup-form-section h3{
+  margin-bottom: 10%;
+}
+
+.signup-form-section button{
+  background-color: #f68989;
+  border-color: #874356;
+}
+.signup-form-section p{
+  text-align: center;
+  margin : auto auto;
+  margin-top: 2%;
+}
