@@ -3,8 +3,15 @@ import NavigationBar from "../components/NavigationBar";
 import { Button, Container, Row, Col } from "react-bootstrap";
 import header_image from "../assets/smiley_calendar.png";
 import feature_image from "../assets/smiley_calendar.png";
+import { useNavigate } from "react-router-dom";
 
 const Home = ({ testimonies }) => {
+  let navigate = useNavigate();
+  
+  let goSignUp = ()=>{
+    navigate("/signup");
+  }
+
   return (
     <div className="home-page">
       <NavigationBar />
@@ -16,7 +23,7 @@ const Home = ({ testimonies }) => {
               <p>A digital way to track and uplift your mood.</p>
               <div className="header-buttons">
                 <Button>Log In</Button>
-                <Button style={{ marginLeft: 10 }}>Sign Up</Button>
+                <Button style={{ marginLeft: 10 }} onClick={goSignUp}>Sign Up</Button>
               </div>
             </Col>
             <Col>
