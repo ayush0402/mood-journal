@@ -2,6 +2,7 @@ import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { BsGoogle } from "react-icons/bs";
+import login from "../assets/login.svg";
 
 export default function LogIn() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ export default function LogIn() {
     <div className="custom-login-box">
       <Container>
         <Row className="vh-100 d-flex justify-content-center align-items-center">
-          <Col md={8} lg={6} xs={12}>
+          <Col md={8} lg={6} xs={12} className="login-form">
             <div className="custom-login-card-border"></div>
             <Card className="shadow">
               <Card.Body>
@@ -79,6 +80,9 @@ export default function LogIn() {
                 <Button>{<BsGoogle />}</Button>
               </Card.Body>
             </Card>
+          </Col>
+          <Col>
+            <img src={login} alt=""/>
           </Col>
         </Row>
       </Container>

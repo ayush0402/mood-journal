@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import sign from '../assets/signup.svg';
 
 export default function SignUp() {
   const [name, setName] = useState();
@@ -11,7 +12,7 @@ export default function SignUp() {
     <div className="custom-login-box">
       <Container>
         <Row className="vh-100 d-flex justify-content-center align-items-center">
-          <Col md={8} lg={6} xs={12}>
+          <Col md={8} lg={6} xs={12} className="signup-form">
             <div className="custom-login-card-border"></div>
             <Card className="shadow">
               <Card.Body>
@@ -75,6 +76,9 @@ export default function SignUp() {
                 </div>
               </Card.Body>
             </Card>
+          </Col>
+          <Col md={8} lg={6} xs={12}>
+            <img src={sign} alt="" />
           </Col>
         </Row>
       </Container>

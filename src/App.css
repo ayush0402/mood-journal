@@ -247,6 +247,9 @@ body {
   background-color: #c65d78;
   border-color: black;
 }
+.login-form{
+  padding : 0 10% 0 10%;
+}
 
 /* SignUp Page */
 
@@ -273,4 +276,8 @@ body {
   text-align: center;
   margin: auto auto;
   margin-top: 2%;
+}
+.signup-form{
+  padding : 0 10% 0 10%;
+
 }
