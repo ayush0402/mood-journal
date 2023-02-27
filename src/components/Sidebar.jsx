@@ -1,61 +1,107 @@
-import { useState } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
-import { FaCog, FaUserTie, FaColumns, FaThList } from "react-icons/fa";
+import { Link, NavLink } from "react-router-dom";
 import {
+  ProSidebar,
   Menu,
   MenuItem,
-  ProSidebar,
   SidebarHeader,
-  SubMenu,
+  SidebarFooter,
+  SidebarContent,
 } from "react-pro-sidebar";
-import "react-pro-sidebar/dist/css/styles.css";
-import styled from "styled-components";
+import {
+  FaUser,
+  FaAngleDoubleLeft,
+  FaAngleDoubleRight,
+  FaTachometerAlt,
+  FaGem,
+} from "react-icons/fa";
 
-const Menuitem = styled(MenuItem)`
-  :hover {
-    background-color: #ffdb58;
-    padding: 5px;
-    border-radius: 10px;
-  }
-`;
-
-const SideNavigation = () => {
-  const [collapsed, setCollapsed] = useState(false);
-  const styles = {
-    sideBarHeight: {
-      height: "145vh",
-    },
-    menuIcon: {
-      float: "right",
-      margin: "10px",
-    },
-  };
-  const onClickMenuIcon = () => {
-    setCollapsed(!collapsed);
-  };
+const Sidebar = ({
+  collapsed,
+  toggled,
+  handleToggleSidebar,
+  handleCollapsedChange,
+}) => {
   return (
-    <ProSidebar style={styles.sideBarHeight} collapsed={collapsed}>
+    <ProSidebar
+      image={false}
+      collapsed={collapsed}
+      toggled={toggled}
+      onToggle={handleToggleSidebar}
+      breakPoint="md"
+    >
+      {/* Header */}
       <SidebarHeader>
-        <div style={styles.menuIcon} onClick={onClickMenuIcon}>
-          <AiOutlineMenu />
-        </div>
+        <Menu iconShape="circle">
+          {collapsed ? (
+            <MenuItem
+              icon={<FaAngleDoubleRight />}
+              onClick={handleCollapsedChange}
+            ></MenuItem>
+          ) : (
+            <MenuItem
+              suffix={<FaAngleDoubleLeft />}
+              onClick={handleCollapsedChange}
+            >
+              <div
+                style={{
+                  padding: "9px",
+                  textTransform: "uppercase",
+                  fontWeight: "bold",
+                  fontSize: 15,
+                  letterSpacing: "1px",
+                }}
+              >
+                Mood Journal
+              </div>
+            </MenuItem>
+          )}
+        </Menu>
       </SidebarHeader>
-      <Menu iconShape="square">
-        <Menuitem icon={<FaColumns />}> Dashboard</Menuitem>
-        <Menuitem icon={<FaUserTie />} href="/employees">
-          Employees
-        </Menuitem>
-        <SubMenu title="Stages" icon={<FaThList />}>
-          <Menuitem>Offer Letter</Menuitem>
-          <MenuItem>Skill Matrix</MenuItem>
-          <MenuItem>Know Your Company</MenuItem>
-          <MenuItem>Joining Day Information</MenuItem>
-          <MenuItem>Feedback</MenuItem>
-          <MenuItem>Background Check</MenuItem>
-        </SubMenu>
-        <Menuitem icon={<FaCog />}>Settings</Menuitem>
-      </Menu>
+      {/* Content */}
+      <SidebarContent>
+        <Menu iconShape="circle">
+          <MenuItem
+            icon={<FaTachometerAlt />}
+            suffix={<span className="badge red">NEW</span>}
+          >
+            Write
+            <NavLink to="/dashboard/write-new" />
+          </MenuItem>
+          {/* <MenuItem icon={<FaGem />}>Components </MenuItem> */}
+          <MenuItem icon={<FaGem />}>
+            Public Journals <NavLink to="/dashboard/public-journals" />
+          </MenuItem>
+          <MenuItem
+            icon={<FaTachometerAlt />}
+            suffix={<span className="badge red">NEW</span>}
+          >
+            CalendarView
+            <NavLink to="/dashboard/calendar-view" />
+          </MenuItem>
+          <MenuItem
+            icon={<FaTachometerAlt />}
+            suffix={<span className="badge red">NEW</span>}
+          >
+            Meditate
+            <NavLink to="/dashboard/meditate" />
+          </MenuItem>
+        </Menu>
+      </SidebarContent>
+      {/* Footer */}
+      <SidebarFooter style={{ textAlign: "center" }}>
+        <div className="sidebar-btn-wrapper" style={{ padding: "16px" }}>
+          <Link
+            className="sidebar-btn"
+            style={{ cursor: "pointer" }}
+            to="/profile"
+          >
+            <FaUser />
+            <span>My Account</span>
+          </Link>
+        </div>
+      </SidebarFooter>
     </ProSidebar>
   );
 };
-export default SideNavigation;
+
+export default Sidebar;
