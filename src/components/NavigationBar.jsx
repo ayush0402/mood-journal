@@ -45,7 +45,7 @@ const NavigationBar = () => {
             </Nav.Link>
             <Nav.Link
               as={NavLink}
-              to="/dashboard"
+              to="/dashboard/write-new"
               className={`custom-navbar-link ${navbarScroll ? "scrolled" : ""}`}
             >
               Dashboard
