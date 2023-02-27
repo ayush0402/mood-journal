@@ -16,10 +16,10 @@ import { useNavigate } from "react-router-dom";
 
 const Home = ({ testimonies }) => {
   let navigate = useNavigate();
-  
-  let goSignUp = ()=>{
+
+  let goSignUp = () => {
     navigate("/signup");
-  }
+  };
 
   return (
     <div className="home-page">
@@ -33,8 +33,16 @@ const Home = ({ testimonies }) => {
                 A digital way to track and uplift your mood.
               </p>
               <div className="header-buttons">
-                <Button>Log In</Button>
-                <Button style={{ marginLeft: 10 }} onClick={goSignUp}>Sign Up</Button>
+                <Button
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  Log In
+                </Button>
+                <Button style={{ marginLeft: 10 }} onClick={goSignUp}>
+                  Sign Up
+                </Button>
               </div>
             </Col>
             <Col xs="12" lg="6">
@@ -113,7 +121,13 @@ const Home = ({ testimonies }) => {
                 Have any queries, suggestions or complaints?<br></br>Reach out
                 to us.
               </h5>
-              <Button>Contact Us</Button>
+              <Button
+                onClick={() => {
+                  navigate("/contact-us");
+                }}
+              >
+                Contact Us
+              </Button>
             </Col>
           </Row>
         </Container>

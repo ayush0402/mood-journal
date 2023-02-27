@@ -5,6 +5,7 @@ import ContactUs from "./pages/ContactUs";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import SignUp from "./pages/SignUp";
+import LogIn from "./pages/LogIn";
 
 function App() {
   const testimonies = [
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" element={<Home testimonies={testimonies} />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
