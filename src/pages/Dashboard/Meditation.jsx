@@ -1,6 +1,7 @@
 import { FaBars } from "react-icons/fa";
 import Sidebar from "../../components/Sidebar";
 import "./styles.scss";
+import meditate_image from "../../assets/meditate.svg"
 
 const Meditation = ({
   collapsed,
@@ -20,7 +21,7 @@ const Meditation = ({
         <div className="btn-toggle" onClick={() => handleToggleSidebar(true)}>
           <FaBars />
         </div>
-        <h1>Meditate</h1>
+        <img src={meditate_image} alt=""/>
       </main>
     </div>
   );
