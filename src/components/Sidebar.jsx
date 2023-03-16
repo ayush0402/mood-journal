@@ -15,6 +15,9 @@ import {
   FaGem,
 } from "react-icons/fa";
 
+// Reference:
+// https://codesandbox.io/s/react-sidebar-routing-boj4c
+
 const Sidebar = ({
   collapsed,
   toggled,

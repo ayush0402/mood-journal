@@ -49,7 +49,7 @@ const Home = ({ testimonies }) => {
               <img
                 src={header_image}
                 className="header-image"
-                alt="Smiley Calendar"
+                alt="header-illustration"
               />
             </Col>
           </Row>
@@ -60,18 +60,18 @@ const Home = ({ testimonies }) => {
         <Row className="features-list">
           <Col md="6" lg="3">
             <img src={feature1} alt="feature_1" className="feature-image" />
-            <h3>Feature 1</h3>
+            <h3>Write</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-              voluptatibus voluptatem rerum beatae quae alias iste tempora.
+              Keep a record of your daily journal entries which either be set
+              private or public based on your selection.
             </p>
           </Col>
           <Col md="6" lg="3">
             <img src={feature2} alt="feature_2" className="feature-image" />
-            <h3>Feature 2</h3>
+            <h3>Track</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-              voluptatibus voluptatem rerum beatae quae alias iste tempora.
+              Track your mood throughout the month or year maintained on a
+              calendar so you can know what affects you.
             </p>
           </Col>
           <Col md="6" lg="3">
@@ -81,18 +81,18 @@ const Home = ({ testimonies }) => {
               className="feature-image"
               style={{ marginTop: 60, marginBottom: 60 }}
             />
-            <h3>Feature 3</h3>
+            <h3>Explore</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-              voluptatibus voluptatem rerum beatae quae alias iste tempora.
+              Read and comment on other public journals sharing your insights
+              and help.
             </p>
           </Col>
           <Col md="6" lg="3">
             <img src={feature4} alt="feature_4" className="feature-image" />
-            <h3>Feature 4</h3>
+            <h3>Relax</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-              voluptatibus voluptatem rerum beatae quae alias diste tempora.
+              Try out meditation and other relaxation methods to relieve that
+              stress and anxiety of yours.
             </p>
           </Col>
         </Row>

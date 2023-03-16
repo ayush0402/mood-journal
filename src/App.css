@@ -111,6 +111,9 @@ body {
 
 .testimony-review {
   margin: 3% 0 50px 0;
+  font-style: italic;
+  font-weight: 600;
+  font-size: larger;
 }
 
 .testimonial-submit-text {
@@ -147,6 +150,7 @@ body {
 
 .contact-section-text {
   margin: auto 0;
+  padding-top: 9%;
 }
 
 /* Footer */
@@ -247,8 +251,8 @@ body {
   background-color: #c65d78;
   border-color: black;
 }
-.login-form{
-  padding : 0 10% 0 10%;
+.login-form {
+  padding: 0 10% 0 10%;
 }
 
 /* SignUp Page */
@@ -277,7 +281,6 @@ body {
   margin: auto auto;
   margin-top: 2%;
 }
-.signup-form{
-  padding : 0 10% 0 10%;
-
+.signup-form {
+  padding: 0 10% 0 10%;
 }
