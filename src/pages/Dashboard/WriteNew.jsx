@@ -1,28 +1,14 @@
-import { FaBars } from "react-icons/fa";
-import Sidebar from "../../components/Sidebar";
-import "./styles.scss";
+import DashboardLayout from "../../components/DashboardLayout";
 
-const WriteNew = ({
-  collapsed,
-  toggled,
-  handleToggleSidebar,
-  handleCollapsedChange,
-}) => {
+const WriteNew = () => {
   return (
-    <div className={`app ${toggled ? "toggled" : ""}`}>
-      <Sidebar
-        collapsed={collapsed}
-        toggled={toggled}
-        handleToggleSidebar={handleToggleSidebar}
-        handleCollapsedChange={handleCollapsedChange}
-      />
-      <main>
-        <div className="btn-toggle" onClick={() => handleToggleSidebar(true)}>
-          <FaBars />
+    <>
+      <DashboardLayout>
+        <div>
+          <h1>Write New</h1>
         </div>
-        <h1>Write New</h1>
-      </main>
-    </div>
+      </DashboardLayout>
+    </>
   );
 };
 
