@@ -229,15 +229,7 @@ body {
 .contact-us-container {
   padding: 3% 5% 3%;
 }
-.text-center button{
-  color: black;
-  background-color: #f68989;
-  border-color: black;
-}
-.text-center button:hover {
-  background-color: #c65d78;
-  border-color: black;
-}
+
 /* LogIn Page */
 .custom-login-card-border {
   border: solid 3px;
@@ -288,27 +280,4 @@ body {
 .signup-form{
   padding : 0 10% 0 10%;
 
-}
-
-/* WriteNew Page */
-.diary-entry{
-  margin: 5% 5% 5% 5%;
-  padding: 0 7% 0 7%;
-}
-.diary-entry button{
-  color: black;
-  background-color: #f68989;
-  border-color: black;
-}
-.diary-entry Button:hover {
-  background-color: #c65d78;
-  border-color: black;
-
-}
-.diary-entry h3{
-  margin-bottom: 5%;
-  text-align: center;
-}
-.diary_entry_image img{
-  margin: 28% 5% 5% 0;
 }

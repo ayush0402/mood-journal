@@ -1,7 +1,6 @@
 import { FaBars } from "react-icons/fa";
 import Sidebar from "../../components/Sidebar";
 import "./styles.scss";
-import calendar from '../../assets/calendar.png'
 
 const CalendarView = ({
   collapsed,
@@ -21,7 +20,7 @@ const CalendarView = ({
         <div className="btn-toggle" onClick={() => handleToggleSidebar(true)}>
           <FaBars />
         </div>
-        <img src={calendar} alt=""/>
+        <h1>Calendar View</h1>
       </main>
     </div>
   );
