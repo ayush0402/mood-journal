@@ -1,16 +1,39 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
-import sign from '../assets/signup.svg';
+import { NavLink, useNavigate } from "react-router-dom";
+import sign from "../../assets/signup.svg";
+import { auth } from "../../config/firebase";
 
 export default function SignUp() {
+  const navigate = useNavigate();
+
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredentials) => {
+        // Signed In
+        const user = userCredentials.user;
+        console.log(user);
+        setName("");
+        setEmail("");
+        setPassword("");
+
+        // TODO: Integrate users database post backend implementation
+      })
+      .catch((error) => {
+        console.log(error.code, error.message);
+      });
+  };
+
   return (
     <div className="custom-login-box">
-      <Container>
+      <Container style={{ paddingTop: 15 }}>
         <Row className="vh-100 d-flex justify-content-center align-items-center">
           <Col md={8} lg={6} xs={12} className="signup-form">
             <div className="custom-login-card-border"></div>
@@ -20,11 +43,11 @@ export default function SignUp() {
                   <h2 className="fw-bold mb-2 text-uppercase ">MoodJournal</h2>
                   <p className=" mb-5">Create a new account!</p>
                   <div className="mb-3">
-                    <Form>
+                    <Form onSubmit={onSubmit}>
                       <Form.Group className="mb-3" controlId="">
                         <Form.Label className="text-center">Name</Form.Label>
                         <Form.Control
-                          type="email"
+                          type="text"
                           placeholder="Ayush Kumar"
                           onChange={(event) => setName(event.target.value)}
                         />

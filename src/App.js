@@ -3,12 +3,12 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import ContactUs from "./pages/ContactUs";
 import NotFound from "./pages/NotFound";
-import SignUp from "./pages/SignUp";
-import LogIn from "./pages/LogIn";
-import WriteNew from "./pages/Dashboard/WriteNew";
-import PublicJournals from "./pages/Dashboard/PublicJournals";
-import CalendarView from "./pages/Dashboard/CalendarView";
-import Meditation from "./pages/Dashboard/Meditation";
+import SignUp from "./pages/auth/SignUp";
+import LogIn from "./pages/auth/LogIn";
+import WriteNew from "./pages/dashboard/WriteNew";
+import PublicJournals from "./pages/dashboard/PublicJournals";
+import CalendarView from "./pages/dashboard/CalendarView";
+import Meditation from "./pages/dashboard/Meditation";
 
 function App() {
   const testimonies = [
