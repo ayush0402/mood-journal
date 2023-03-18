@@ -1,56 +1,76 @@
-import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
+import {
+  Col,
+  Button,
+  Row,
+  Container,
+  Card,
+  Form,
+  Alert,
+} from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { BsGoogle } from "react-icons/bs";
 import login from "../../assets/login.svg";
-import {
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-} from "firebase/auth";
-import { auth } from "../../config/firebase";
+import { useUserAuth } from "../../contexts/UserAuthContext";
 
 export default function LogIn() {
   const navigate = useNavigate();
-  const provider = new GoogleAuthProvider();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const { logIn, signInWithGoogle } = useUserAuth();
 
-  const onSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
     // handleValidation();
-    await signInWithEmailAndPassword(auth, email, password)
-      .then((userCredentials) => {
-        // Logged In
-        const user = userCredentials.user;
-        console.log(user);
-      })
-      .catch((error) => {
-        console.log(error.code, error.message);
-      });
+
+    // await signInWithEmailAndPassword(auth, email, password)
+    //   .then((userCredentials) => {
+    //     // Logged In
+    //     const user = userCredentials.user;
+    //     console.log(user);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error.code, error.message);
+    //   });
+    try {
+      await logIn(email, password);
+      navigate("/dashboard/write-new");
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
-  const googleSignIn = async () => {
-    await signInWithPopup(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        console.log(user);
-        // IdP data available using getAdditionalUserInfo(result)
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        console.log(errorCode, errorMessage);
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-      });
+  const handleSignInWithGoogle = async (e) => {
+    e.preventDefault();
+    // await signInWithPopup(auth, provider)
+    //   .then((result) => {
+    //     // This gives you a Google Access Token. You can use it to access the Google API.
+    //     const credential = GoogleAuthProvider.credentialFromResult(result);
+    //     const token = credential.accessToken;
+    //     // The signed-in user info.
+    //     const user = result.user;
+    //     console.log(user);
+    //     // IdP data available using getAdditionalUserInfo(result)
+    //   })
+    //   .catch((error) => {
+    //     // Handle Errors here.
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     // The email of the user's account used.
+    //     console.log(errorCode, errorMessage);
+    //     const email = error.customData.email;
+    //     // The AuthCredential type that was used.
+    //     const credential = GoogleAuthProvider.credentialFromError(error);
+    //   });
+    try {
+      // Returns Google Access Token. You can use it to access the Google API.
+      await signInWithGoogle();
+      navigate("/dashboard/write-new");
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -63,9 +83,10 @@ export default function LogIn() {
               <Card.Body>
                 <div className="mb-3 mt-md-4">
                   <h2 className="fw-bold mb-2 text-uppercase ">MoodJournal</h2>
-                  <p className=" mb-5">Please enter your login and password!</p>
+                  <p className=" mb-4">Please enter your login and password!</p>
+                  {error ? <Alert variant="danger">{error}</Alert> : ""}
                   <div className="mb-3">
-                    <Form onSubmit={onSubmit}>
+                    <Form onSubmit={handleSubmit}>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label className="text-center">
                           Email address
@@ -122,7 +143,9 @@ export default function LogIn() {
                   </p>
                 </div>
                 <div className="text-center">
-                  <Button onClick={googleSignIn}>{<BsGoogle />}</Button>
+                  <Button onClick={handleSignInWithGoogle}>
+                    {<BsGoogle />}
+                  </Button>
                 </div>
               </Card.Body>
             </Card>

@@ -1,34 +1,49 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
+import {
+  Col,
+  Button,
+  Row,
+  Container,
+  Card,
+  Form,
+  Alert,
+} from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import sign from "../../assets/signup.svg";
-import { auth } from "../../config/firebase";
+import { useUserAuth } from "../../contexts/UserAuthContext";
 
 export default function SignUp() {
   const navigate = useNavigate();
 
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const { signUp } = useUserAuth();
 
-  const onSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+    // await createUserWithEmailAndPassword(auth, email, password)
+    //   .then((userCredentials) => {
+    //     // Signed In
+    //     const user = userCredentials.user;
+    //     console.log(user);
+    //     setName("");
+    //     setEmail("");
+    //     setPassword("");
 
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredentials) => {
-        // Signed In
-        const user = userCredentials.user;
-        console.log(user);
-        setName("");
-        setEmail("");
-        setPassword("");
-
-        // TODO: Integrate users database post backend implementation
-      })
-      .catch((error) => {
-        console.log(error.code, error.message);
-      });
+    //     // TODO: Integrate users database post backend implementation
+    //   })
+    //   .catch((error) => {
+    //     console.log(error.code, error.message);
+    //   });
+    try {
+      await signUp(email, password);
+      navigate("/dashboard/write-new");
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -41,9 +56,10 @@ export default function SignUp() {
               <Card.Body>
                 <div className="mb-3 mt-md-4">
                   <h2 className="fw-bold mb-2 text-uppercase ">MoodJournal</h2>
-                  <p className=" mb-5">Create a new account!</p>
+                  <p className=" mb-4">Create a new account!</p>
+                  {error ? <Alert variant="danger">{error}</Alert> : ""}
                   <div className="mb-3">
-                    <Form onSubmit={onSubmit}>
+                    <Form onSubmit={handleSubmit}>
                       <Form.Group className="mb-3" controlId="">
                         <Form.Label className="text-center">Name</Form.Label>
                         <Form.Control

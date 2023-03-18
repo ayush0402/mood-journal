@@ -9,6 +9,8 @@ import WriteNew from "./pages/dashboard/WriteNew";
 import PublicJournals from "./pages/dashboard/PublicJournals";
 import CalendarView from "./pages/dashboard/CalendarView";
 import Meditation from "./pages/dashboard/Meditation";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { UserAuthContextProvider } from "./contexts/UserAuthContext";
 
 function App() {
   const testimonies = [
@@ -31,17 +33,47 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home testimonies={testimonies} />} />
-        <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/dashboard/write-new" element={<WriteNew />} />
-        <Route path="/dashboard/public-journals" element={<PublicJournals />} />
-        <Route path="/dashboard/calendar-view" element={<CalendarView />} />
-        <Route path="/dashboard/meditate" element={<Meditation />} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <UserAuthContextProvider>
+        <Routes>
+          <Route path="/" element={<Home testimonies={testimonies} />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route
+            path="/dashboard/write-new"
+            element={
+              <ProtectedRoute>
+                <WriteNew />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/public-journals"
+            element={
+              <ProtectedRoute>
+                <PublicJournals />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/calendar-view"
+            element={
+              <ProtectedRoute>
+                <CalendarView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/meditate"
+            element={
+              <ProtectedRoute>
+                <Meditation />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </UserAuthContextProvider>
     </>
   );
 }
