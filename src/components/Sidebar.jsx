@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   ProSidebar,
   Menu,
@@ -14,6 +14,7 @@ import {
   FaTachometerAlt,
   FaGem,
 } from "react-icons/fa";
+import { useUserAuth } from "../contexts/UserAuthContext";
 
 // Reference:
 // https://codesandbox.io/s/react-sidebar-routing-boj4c
@@ -24,6 +25,11 @@ const Sidebar = ({
   handleToggleSidebar,
   handleCollapsedChange,
 }) => {
+  const { logOut } = useUserAuth();
+  const handleLogout = () => {
+    logOut();
+  };
+
   return (
     <ProSidebar
       image={false}
@@ -93,14 +99,14 @@ const Sidebar = ({
       {/* Footer */}
       <SidebarFooter style={{ textAlign: "center" }}>
         <div className="sidebar-btn-wrapper" style={{ padding: "16px" }}>
-          <Link
+          <div
             className="sidebar-btn"
+            onClick={handleLogout}
             style={{ cursor: "pointer" }}
-            to="/profile"
           >
             <FaUser />
-            <span>My Account</span>
-          </Link>
+            <span>Logout</span>
+          </div>
         </div>
       </SidebarFooter>
     </ProSidebar>
