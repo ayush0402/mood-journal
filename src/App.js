@@ -3,12 +3,15 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import ContactUs from "./pages/ContactUs";
 import NotFound from "./pages/NotFound";
-import SignUp from "./pages/SignUp";
-import LogIn from "./pages/LogIn";
-import WriteNew from "./pages/Dashboard/WriteNew";
-import PublicJournals from "./pages/Dashboard/PublicJournals";
-import CalendarView from "./pages/Dashboard/CalendarView";
-import Meditation from "./pages/Dashboard/Meditation";
+import SignUp from "./pages/auth/SignUp";
+import LogIn from "./pages/auth/LogIn";
+import WriteNew from "./pages/dashboard/WriteNew";
+import PublicJournals from "./pages/dashboard/PublicJournals";
+import CalendarView from "./pages/dashboard/CalendarView";
+import Meditation from "./pages/dashboard/Meditation";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { UserAuthContextProvider } from "./contexts/UserAuthContext";
+import ForgotPassword from "./pages/auth/ForgotPassword";
 
 function App() {
   const testimonies = [
@@ -31,17 +34,48 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home testimonies={testimonies} />} />
-        <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/dashboard/write-new" element={<WriteNew />} />
-        <Route path="/dashboard/public-journals" element={<PublicJournals />} />
-        <Route path="/dashboard/calendar-view" element={<CalendarView />} />
-        <Route path="/dashboard/meditate" element={<Meditation />} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <UserAuthContextProvider>
+        <Routes>
+          <Route path="/" element={<Home testimonies={testimonies} />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route
+            path="/dashboard/write-new"
+            element={
+              <ProtectedRoute>
+                <WriteNew />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/public-journals"
+            element={
+              <ProtectedRoute>
+                <PublicJournals />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/calendar-view"
+            element={
+              <ProtectedRoute>
+                <CalendarView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/meditate"
+            element={
+              <ProtectedRoute>
+                <Meditation />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </UserAuthContextProvider>
     </>
   );
 }

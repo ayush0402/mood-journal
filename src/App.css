@@ -255,6 +255,19 @@ body {
   padding: 0 10% 0 10%;
 }
 
+.custom-login-box .box-separator p {
+  /* https://stackoverflow.com/a/5214204/14822653 */
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid grey;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+
+.custom-login-box .box-separator p span {
+  background: #fff;
+  padding: 0 10px;
+}
 /* SignUp Page */
 
 /* SignUp image */
