@@ -93,9 +93,12 @@ export default function LogIn() {
                           controlId="formBasicCheckbox"
                         >
                           <p className="small">
-                            <a className="text-primary" href="/forgot-password">
+                            <NavLink
+                              to="/forgot-password"
+                              className="text-primary"
+                            >
                               Forgot password?
-                            </a>
+                            </NavLink>
                           </p>
                         </Form.Group>
                         <div className="d-grid">
