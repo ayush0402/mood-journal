@@ -3,9 +3,11 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink, useLocation } from "react-router-dom";
+import { useUserAuth } from "../contexts/UserAuthContext";
 
 const NavigationBar = () => {
   let [navbarScroll, setNavbarScroll] = useState(false);
+  const { user } = useUserAuth();
 
   window.addEventListener("scroll", () => {
     setNavbarScroll(window.scrollY >= 80 ? true : false);
@@ -45,11 +47,32 @@ const NavigationBar = () => {
             </Nav.Link>
             <Nav.Link
               as={NavLink}
-              to="/dashboard/write-new"
+              to="/login"
               className={`custom-navbar-link ${navbarScroll ? "scrolled" : ""}`}
             >
-              Dashboard
+              Login
             </Nav.Link>
+            <Nav.Link
+              as={NavLink}
+              to="/signup"
+              className={`custom-navbar-link ${navbarScroll ? "scrolled" : ""}`}
+            >
+              Signup
+            </Nav.Link>
+            {/* While signin on home Dashboard button on navbar works but not changing url. */}
+            {user ? (
+              <Nav.Link
+                as={NavLink}
+                to="/dashboard/write-new"
+                className={`custom-navbar-link ${
+                  navbarScroll ? "scrolled" : ""
+                }`}
+              >
+                Dashboard
+              </Nav.Link>
+            ) : (
+              ""
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

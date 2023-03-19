@@ -2,6 +2,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -16,7 +17,7 @@ const userAuthContext = createContext();
 
 export const UserAuthContextProvider = ({ children }) => {
   const [user, setUser] = useState("");
-  
+
   const signUp = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -29,6 +30,9 @@ export const UserAuthContextProvider = ({ children }) => {
   };
   const logOut = () => {
     return signOut(auth);
+  };
+  const forgotPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
   };
 
   useEffect(() => {
@@ -43,7 +47,7 @@ export const UserAuthContextProvider = ({ children }) => {
 
   return (
     <userAuthContext.Provider
-      value={{ user, signUp, logIn, signInWithGoogle, logOut }}
+      value={{ user, signUp, logIn, signInWithGoogle, logOut, forgotPassword }}
     >
       {children}
     </userAuthContext.Provider>

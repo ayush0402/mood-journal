@@ -11,6 +11,7 @@ import CalendarView from "./pages/dashboard/CalendarView";
 import Meditation from "./pages/dashboard/Meditation";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { UserAuthContextProvider } from "./contexts/UserAuthContext";
+import ForgotPassword from "./pages/auth/ForgotPassword";
 
 function App() {
   const testimonies = [
@@ -71,6 +72,7 @@ function App() {
           />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </UserAuthContextProvider>

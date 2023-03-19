@@ -94,6 +94,9 @@ const Sidebar = ({
             Meditate
             <NavLink to="/dashboard/meditate" />
           </MenuItem>
+          <MenuItem icon={<FaGem />}>
+            Home <NavLink to="/" />
+          </MenuItem>
         </Menu>
       </SidebarContent>
       {/* Footer */}
