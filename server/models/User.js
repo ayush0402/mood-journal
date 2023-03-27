@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
   name: String,
   email: String,
-  dateOfJoining: String,
+  dateOfJoining: Date,
 });
 
 const User = mongoose.model("user", userSchema);
-module.exports = User;
+module.exports = { User, userSchema };

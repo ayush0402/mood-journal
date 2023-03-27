@@ -12,32 +12,23 @@ import { NavLink, useNavigate } from "react-router-dom";
 import sign from "../../assets/signup.svg";
 import NavigationBar from "../../components/NavigationBar";
 import { useUserAuth } from "../../contexts/UserAuthContext";
-import axios from "axios";
 
 export default function SignUp() {
   const navigate = useNavigate();
-
+  const { signUp } = useUserAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { signUp } = useUserAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     try {
-      await signUp(email, password);
+      await signUp(name, email, password);
       navigate("/dashboard/write-new");
     } catch (error) {
       setError(error.message);
-    }
-    const newUser = { name: name, email: email };
-    try {
-      console.log("inside try for post");
-      await axios.post("http://localhost:5000/auth/register", newUser);
-    } catch (error) {
-      console.log(error);
     }
   };
 

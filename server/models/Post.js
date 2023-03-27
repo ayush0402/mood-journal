@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { userSchema } = require("./User");
 
 const postSchema = new mongoose.Schema({
   title: {
@@ -7,6 +8,10 @@ const postSchema = new mongoose.Schema({
   },
   content: {
     type: String,
+    required: true,
+  },
+  author: {
+    type: userSchema,
     required: true,
   },
   likes: Number,
