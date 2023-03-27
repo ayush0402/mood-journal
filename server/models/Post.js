@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
-const { userSchema } = require("./User");
+const { commentSchema } = require("./Comment");
+
+const ObjectId = mongoose.Schema.ObjectId;
 
 const postSchema = new mongoose.Schema({
+  post_id: ObjectId,
   title: {
     type: String,
     required: true,
@@ -10,13 +13,13 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  author: {
-    type: userSchema,
+  author_id: {
+    type: ObjectId,
     required: true,
   },
-  likes: Number,
+  likes_count: Number,
   date: { type: Date, required: true },
-  comments: [String],
+  comments: [commentSchema],
 });
 
 const Post = mongoose.model("Post", postSchema);
