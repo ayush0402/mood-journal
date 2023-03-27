@@ -297,3 +297,16 @@ body {
 .signup-form {
   padding: 0 10% 0 10%;
 }
+
+
+/* Write New Page */
+
+.write-new Button {
+  background-color: #f68989;
+  border-color: #874356;
+}
+
+.write-new Button:hover {
+  background-color: #c65d78;
+  border-color: black;
+}
