@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 const { commentSchema } = require("./Comment");
 
-const ObjectId = mongoose.Schema.ObjectId;
-
 const postSchema = new mongoose.Schema({
-  post_id: ObjectId,
   title: {
     type: String,
     required: true,
@@ -13,9 +10,12 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  author_id: {
-    type: ObjectId,
+  visibility: {
+    type: Boolean,
     required: true,
+  },
+  author_id: {
+    type: String,
   },
   likes_count: Number,
   date: { type: Date, required: true },

@@ -8,4 +8,9 @@ router.post("/register", async (req, res) => {
   res.sendStatus(200);
 });
 
+router.get("/get-user-by-email", async (req, res) => {
+  const user = await User.find({ email: req.body.email });
+  res.json(user);
+});
+
 module.exports = router;

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const ObjectId = mongoose.Schema.ObjectId;
 
 const commentSchema = new mongoose.Schema({
-  body: {
+  content: {
     type: String,
     required: true,
   },
@@ -12,7 +12,7 @@ const commentSchema = new mongoose.Schema({
     required: true,
   },
   author_id: {
-    type: ObjectId,
+    type: String,
     required: true,
   },
 });

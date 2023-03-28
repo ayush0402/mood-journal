@@ -26,7 +26,7 @@ export const UserAuthContextProvider = ({ children }) => {
       displayName: name,
     });
     try {
-      await axios.post("http://localhost:5000/auth/register", {
+      await axios.post("auth/register", {
         name: name,
         email: email,
         accessToken: userObj.user.accessToken,

@@ -12,8 +12,10 @@ import Meditation from "./pages/dashboard/Meditation";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { UserAuthContextProvider } from "./contexts/UserAuthContext";
 import ForgotPassword from "./pages/auth/ForgotPassword";
-
+import axios from "axios";
 function App() {
+  axios.defaults.baseURL = "http://localhost:5000/";
+
   const testimonies = [
     {
       name: "John Doe",

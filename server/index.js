@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const morgan = require("morgan");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const connectDb = require("./config/db");
@@ -10,6 +11,7 @@ const port = 5000;
 connectDb();
 app.use(bodyParser.json());
 app.use(cors());
+app.use(morgan("tiny"));
 app.use("/auth", authRoutes);
 app.use("/post", postRoutes);
 
