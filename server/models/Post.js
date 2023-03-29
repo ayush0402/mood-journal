@@ -19,6 +19,7 @@ const postSchema = new mongoose.Schema({
   },
   likes_count: Number,
   date: { type: Date, required: true },
+  sentiment: mongoose.Decimal128,
   comments: [commentSchema],
 });
 
