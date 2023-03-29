@@ -21,12 +21,16 @@
   },
   "homepage": "https://github.com/ayush0402/mood-journal#readme",
   "dependencies": {
+    "apos-to-lex-form": "^1.0.5",
     "body-parser": "^1.20.2",
     "concurrently": "^7.6.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "firebase-admin": "^11.5.0",
     "mongoose": "^7.0.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "natural": "^6.2.0",
+    "spelling-corrector": "^3.0.0",
+    "stopword": "^2.0.8"
   }
 }

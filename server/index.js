@@ -15,14 +15,6 @@ app.use(morgan("tiny"));
 app.use("/auth", authRoutes);
 app.use("/post", postRoutes);
 
-app.get("/api/test", (req, res) => {
-  res.json({
-    message: "Hello world",
-    qty: 10,
-    arr: ["potato", "tomato", "banana"],
-  });
-});
-
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });

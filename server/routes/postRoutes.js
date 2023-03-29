@@ -1,6 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const Post = require("../models/Post");
+const analyze = require("../utils/nlp");
+
+router.get("/s-analyzer", (req, res) => {
+  const sentiment = analyze(req.body.content);
+  res.status(200).json({ sentiment });
+});
 
 router.post("/new", (req, res) => {
   const newPost = new Post({
