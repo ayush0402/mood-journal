@@ -8,24 +8,29 @@ router.get("/s-analyzer", (req, res) => {
   res.status(200).json({ sentiment });
 });
 
-router.post("/new", (req, res) => {
-  const newPost = new Post({
-    title: req.body.title,
-    content: req.body.content,
-    visibility: req.body.visibility,
-    author_id: req.body.author_id,
-    likes_count: 0,
-    date: new Date(Date.now()),
-    comments: [],
-  });
-  newPost.save();
-  console.log("New user registered and saved to MongoDB.");
-  res.sendStatus(200);
-});
-
 router.get("/all", async (req, res) => {
   const allPosts = await Post.find({});
   res.json(allPosts);
+});
+
+router.post("/new", async (req, res) => {
+  const { title, content, visibility, author_id } = req.body;
+  const sentiment = analyze(content);
+  const date = new Date(Date.now());
+
+  const newPost = new Post({
+    title: title,
+    content: content,
+    visibility: visibility,
+    author_id: author_id,
+    likes_count: 0,
+    date: date,
+    sentiment: sentiment,
+    comments: [],
+  });
+  await newPost.save();
+
+  res.sendStatus(200);
 });
 
 module.exports = router;
