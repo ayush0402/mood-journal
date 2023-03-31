@@ -15,7 +15,9 @@ const WriteNew = () => {
     const authorId = "";
     try {
       const authResponse = await axios.get("auth/get-user-by-email", {
-        email: user.email,
+        params: {
+          email: user.email,
+        },
       });
       authorId = authResponse.data[0]._id;
     } catch (error) {

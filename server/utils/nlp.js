@@ -5,6 +5,9 @@ const SW = require("stopword");
 const spellCorrector = new SpellCorrector();
 spellCorrector.loadDictionary();
 
+// Reference:
+// https://blog.logrocket.com/sentiment-analysis-node-js/
+
 const analyze = (content) => {
   const lexedContent = aposToLexForm(content);
   const casedContent = lexedContent.toLowerCase();

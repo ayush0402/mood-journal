@@ -3,7 +3,8 @@ const router = express.Router();
 const { User } = require("../models/User");
 
 router.get("/get-user-by-email", async (req, res) => {
-  const user = await User.find({ email: req.body.email });
+  const _email = req.query["email"];
+  const user = await User.find({ email: _email });
   res.json(user);
 });
 
