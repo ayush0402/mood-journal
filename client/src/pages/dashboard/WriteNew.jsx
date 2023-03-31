@@ -12,7 +12,7 @@ const WriteNew = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const authorId = "";
+    let authorId = "";
     try {
       const authResponse = await axios.get("auth/get-user-by-email", {
         params: {

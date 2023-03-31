@@ -20,8 +20,8 @@ const PostCardView = ({ post }) => {
         bg={variant.toLowerCase()}
         key={_id}
         text={variant.toLowerCase() === "light" ? "dark" : "white"}
-        style={{ width: "18rem" }}
-        className="mb-2"
+        style={{ cursor: "pointer" }}
+        className="mb-2 post-card-view"
         onClick={openPost}
       >
         <Card.Header>{dateObject.toDateString()}</Card.Header>

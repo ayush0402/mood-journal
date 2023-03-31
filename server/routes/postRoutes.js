@@ -1,5 +1,5 @@
 const express = require("express");
-const { default: mongoose } = require("mongoose");
+const { mongoose } = require("mongoose");
 const router = express.Router();
 const Post = require("../models/Post");
 const analyze = require("../utils/nlp");

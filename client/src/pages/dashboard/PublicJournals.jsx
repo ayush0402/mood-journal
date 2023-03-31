@@ -12,6 +12,8 @@ const PublicJournals = () => {
       setLoading(true);
       try {
         const { data: response } = await axios.get("/post/all");
+        // Reversing as to get latest post on the top.
+        response.reverse();
         setPosts(response);
       } catch (error) {
         console.error(error.message);
