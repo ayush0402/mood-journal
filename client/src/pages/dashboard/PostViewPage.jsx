@@ -4,6 +4,9 @@ import { Card, Container, Form, Button } from "react-bootstrap";
 import DashboardLayout from "../../components/DashboardLayout";
 import axios from "axios";
 import { useUserAuth } from "../../contexts/UserAuthContext";
+import PostCommentView from "../../components/PostCommentView";
+import { FaUserCircle } from "react-icons/fa";
+import { IconContext } from "react-icons/lib";
 
 const PostViewPage = () => {
   const { postId } = useParams();
@@ -78,40 +81,47 @@ const PostViewPage = () => {
   return (
     <DashboardLayout>
       <Container className="post-view-container">
-        <Card className="mb-3 shadow post-data-card">
-          <Card.Body>
-            <Card.Title>
-              <h2>{post.title}</h2>
-            </Card.Title>
-            <Card.Subtitle className="mb-3 text-muted">
-              {post.date}
-            </Card.Subtitle>
-            <Card.Text>{post.content}</Card.Text>
-            <hr />
-            <Form onSubmit={submitComment}>
-              <Form.Group className="mb-2" controlId="formBasicEmail">
-                <Form.Label className="text-center">
-                  Add a new comment:
-                </Form.Label>
-                <Form.Control
-                  as="textarea"
-                  placeholder="Type your comment here..."
-                  onChange={(event) => setNewComment(event.target.value)}
-                />
-              </Form.Group>
-              <Button type="submit">Submit</Button>
-            </Form>
-          </Card.Body>
-        </Card>
+        <IconContext.Provider value={{ size: 45 }}>
+          <Card className="mb-3 shadow post-data-card">
+            <Card.Body>
+              <Card.Title>
+                <h2>{post.title}</h2>
+              </Card.Title>
+              <div style={{ display: "flex", justifyContent: "flex-start" }}>
+                <span>
+                  <FaUserCircle />
+                </span>
+                <span className="ms-2">
+                  <span>{author.name}</span>
+                  <p className="text-muted">{post.date}</p>
+                </span>
+              </div>
+
+              <Card.Text className="mt-2" style={{ minHeight: 200 }}>
+                {post.content}
+              </Card.Text>
+              <hr />
+              <Form onSubmit={submitComment}>
+                <Form.Group className="mb-2" controlId="formBasicEmail">
+                  <Form.Label className="text-center">
+                    Add a new comment:
+                  </Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    placeholder="Type your comment here..."
+                    onChange={(event) => setNewComment(event.target.value)}
+                  />
+                </Form.Group>
+                <Button type="submit">Submit</Button>
+              </Form>
+            </Card.Body>
+          </Card>
+        </IconContext.Provider>
         <Card className="shadow">
           <Card.Body>
             <Card.Subtitle>Comments</Card.Subtitle>
             {comments.map((comment) => {
-              return (
-                <p>
-                  {comment.content}, {comment.author_id}
-                </p>
-              );
+              return <PostCommentView comment={comment} />;
             })}
           </Card.Body>
         </Card>
