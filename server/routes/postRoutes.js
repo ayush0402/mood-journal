@@ -2,6 +2,7 @@ const express = require("express");
 const { mongoose } = require("mongoose");
 const router = express.Router();
 const Post = require("../models/Post");
+const { Comment } = require("../models/Comment");
 const analyze = require("../utils/nlp");
 
 router.get("/s-analyzer", (req, res) => {
@@ -40,6 +41,29 @@ router.post("/new", async (req, res) => {
   await newPost.save();
 
   res.sendStatus(200);
+});
+
+router.post("/add-new-comment", async (req, res) => {
+  const _comment = req.body;
+  const content = _comment.content;
+  const postId = _comment.postId;
+  const objectId = new mongoose.Types.ObjectId(postId);
+  const userId = _comment.userId;
+  const date = new Date(Date.now());
+
+  const comment = new Comment({
+    content: content,
+    date: date,
+    author_id: userId,
+  });
+  await Post.updateOne(
+    { _id: objectId },
+    {
+      $push: { comments: comment },
+    }
+  );
+  const updatedPost = await Post.find({ _id: postId });
+  res.json(updatedPost);
 });
 
 module.exports = router;
