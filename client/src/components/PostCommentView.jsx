@@ -2,8 +2,23 @@ import { FaUserCircle } from "react-icons/fa";
 import { Row, Col } from "react-bootstrap";
 import { IconContext } from "react-icons/lib";
 import { useEffect, useState } from "react";
+import axios from "axios";
 const PostCommentView = ({ comment }) => {
-  const [author, setAuthor] = useState();
+  const [author, setAuthor] = useState({});
+  const authorId = comment.author_id;
+
+  useEffect(() => {
+    const fetchAuthor = async () => {
+      const { data: response } = await axios.get("/auth/get-user-by-id", {
+        params: {
+          id: authorId,
+        },
+      });
+      setAuthor(response[0]);
+    };
+
+    fetchAuthor();
+  }, []);
 
   return (
     <>
@@ -14,7 +29,7 @@ const PostCommentView = ({ comment }) => {
             <FaUserCircle />
           </span>
           <span className="ms-2">
-            <span>{comment.author_id}</span>
+            <span>{author.name}</span>
             <p className="text-muted">{comment.date}</p>
           </span>
         </div>
