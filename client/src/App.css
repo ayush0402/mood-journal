@@ -297,3 +297,66 @@ body {
 .signup-form {
   padding: 0 10% 0 10%;
 }
+
+/* Player Component  */
+
+.player-container {
+  width: 100%;
+
+  padding: 1rem;
+  border: 1px solid #8d8d8d;
+  border-radius: 10px;
+  color: #dadada;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+}
+.player-container > * {
+  padding: 1rem 0;
+  color: #cacaca;
+}
+.player-container .title {
+  font-size: inherit;
+}
+.player-container .navigation {
+  width: 100%;
+}
+.player-container .navigation .navigation-wrapper {
+  min-width: 100%;
+  background-color: rgba(119, 119, 119, 0.781);
+  height: 5px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.player-container .navigation .navigation-wrapper .seek-bar {
+  width: 0;
+  height: 100%;
+  background-color: #188003;
+  border-radius: 30px;
+}
+.player-container .controls {
+  font-size: inherit;
+  display: flex;
+  align-items: center;
+}
+.player-container .controls .btn-action {
+  font-size: 2rem;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+.player-container .controls .btn-action:hover {
+  color: white;
+}
+.player-container .controls .pp {
+  font-size: 4rem;
+}
+.audio-play-btn Button{
+  background-color: #f68989;
+  border-color: #874356;
+}
+.audio-play-btn Button:hover{
+  background-color: #c65d78;
+  border-color: black;
+}

@@ -8,10 +8,11 @@ import LogIn from "./pages/auth/LogIn";
 import WriteNew from "./pages/dashboard/WriteNew";
 import PublicJournals from "./pages/dashboard/PublicJournals";
 import CalendarView from "./pages/dashboard/CalendarView";
-import Meditation from "./pages/dashboard/Meditation";
+import Uplift from "./pages/dashboard/Uplift";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { UserAuthContextProvider } from "./contexts/UserAuthContext";
 import ForgotPassword from "./pages/auth/ForgotPassword";
+import Meditate from "./pages/dashboard/uplift/Meditate";
 
 function App() {
   const testimonies = [
@@ -63,13 +64,22 @@ function App() {
             }
           />
           <Route
-            path="/dashboard/meditate"
+            path="/dashboard/uplift/meditate"
             element={
               <ProtectedRoute>
-                <Meditation />
+                <Meditate/>
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/dashboard/uplift"
+            element={
+              <ProtectedRoute>
+                <Uplift />
+              </ProtectedRoute>
+            }
+          />
+
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
