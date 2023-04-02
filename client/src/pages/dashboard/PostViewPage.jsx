@@ -7,6 +7,7 @@ import { useUserAuth } from "../../contexts/UserAuthContext";
 import PostCommentView from "../../components/PostCommentView";
 import { FaUserCircle } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
+import formatDate from "../../utils/formatDate";
 
 const PostViewPage = () => {
   const { postId } = useParams();
@@ -93,7 +94,7 @@ const PostViewPage = () => {
                 </span>
                 <span className="ms-2">
                   <span>{author.name}</span>
-                  <p className="text-muted">{post.date}</p>
+                  <p className="text-muted">{formatDate(post.date)}</p>
                 </span>
               </div>
 

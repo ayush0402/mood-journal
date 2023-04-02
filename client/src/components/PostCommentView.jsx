@@ -1,8 +1,8 @@
 import { FaUserCircle } from "react-icons/fa";
-import { Row, Col } from "react-bootstrap";
 import { IconContext } from "react-icons/lib";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import formatDate from "../utils/formatDate";
 const PostCommentView = ({ comment }) => {
   const [author, setAuthor] = useState({});
   const authorId = comment.author_id;
@@ -30,7 +30,7 @@ const PostCommentView = ({ comment }) => {
           </span>
           <span className="ms-2">
             <span>{author.name}</span>
-            <p className="text-muted">{comment.date}</p>
+            <p className="text-muted">{formatDate(comment.date)}</p>
           </span>
         </div>
         <p>{comment.content}</p>

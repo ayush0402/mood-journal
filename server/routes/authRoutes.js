@@ -17,9 +17,15 @@ router.get("/get-user-by-email", async (req, res) => {
 });
 
 router.post("/register", async (req, res) => {
-  const newUser = new User({ name: req.body.name, email: req.body.email });
-  await newUser.save();
-  res.sendStatus(200);
+  // Check if user already exists
+  const doesExist = await User.exists({ email: req.body.email });
+  if (doesExist) {
+    res.sendStatus(200);
+  } else {
+    const newUser = new User({ name: req.body.name, email: req.body.email });
+    await newUser.save();
+    res.sendStatus(200);
+  }
 });
 
 module.exports = router;
