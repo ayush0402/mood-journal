@@ -97,7 +97,6 @@ const PostViewPage = () => {
                   <p className="text-muted">{formatDate(post.date)}</p>
                 </span>
               </div>
-
               <Card.Text className="mt-2" style={{ minHeight: 200 }}>
                 {post.content}
               </Card.Text>

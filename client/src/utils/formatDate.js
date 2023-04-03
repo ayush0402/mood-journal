@@ -1,3 +1,5 @@
+// Utility function to return date input as String in a DD/MM/YYYY HH:MM format
+
 const formatDate = (dateStr) => {
   const date = new Date(dateStr);
   let hours = date.getHours();
