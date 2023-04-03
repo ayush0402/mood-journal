@@ -20,30 +20,40 @@ const userAuthContext = createContext();
 export const UserAuthContextProvider = ({ children }) => {
   const [user, setUser] = useState("");
 
-  const signUp = async (name, email, password) => {
-    const userObj = await createUserWithEmailAndPassword(auth, email, password);
-    await updateProfile(auth.currentUser, {
-      displayName: name,
-    });
+  const addUserToDatabase = async (userImpl) => {
     try {
       await axios.post("auth/register", {
-        name: name,
-        email: email,
-        accessToken: userObj.user.accessToken,
+        name: userImpl.user.displayName,
+        email: userImpl.user.email,
+        accessToken: userImpl.user.accessToken,
       });
     } catch (error) {
       console.log("Error posting user data to the server", error);
     }
-    return userObj;
+  };
+
+  const signUp = async (name, email, password) => {
+    const userImpl = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    await updateProfile(auth.currentUser, {
+      displayName: name,
+    });
+    await addUserToDatabase(userImpl);
+    return userImpl;
   };
 
   const logIn = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const signInWithGoogle = () => {
+  const signInWithGoogle = async () => {
     const googleAuthProvider = new GoogleAuthProvider();
-    return signInWithPopup(auth, googleAuthProvider);
+    const userImpl = await signInWithPopup(auth, googleAuthProvider);
+    await addUserToDatabase(userImpl);
+    return userImpl;
   };
 
   const logOut = () => {
