@@ -50,14 +50,14 @@ const NavigationBar = () => {
           <Nav>
             {/* While signin on home Dashboard button on navbar works but not changing url. */}
             {user ? (
-              <Nav.Link
+              <Button
                 as={NavLink}
                 to="/dashboard/write-new"
                 className={`custom-navbar-link navbar-buttons ${navbarScroll ? "scrolled" : ""
                   }`}
               >
                 Dashboard
-              </Nav.Link>
+              </Button>
             ) : (
               <Nav>
                 <Button
