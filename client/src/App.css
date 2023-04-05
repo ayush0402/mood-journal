@@ -52,11 +52,17 @@ body {
   font-weight: 600;
   text-decoration: underline;
 }
-.right-navlinks{
+.navbar-buttons{
   color: black;
   background-color: #f68989;
   border:black;
   border-radius: 30px;
+
+}
+
+.navbar-buttons:hover{
+  background-color: #c65d78;
+  border-color: black;
 
 }
 /* Home Page */

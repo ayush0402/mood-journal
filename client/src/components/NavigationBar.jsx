@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink, useLocation } from "react-router-dom";
 import { useUserAuth } from "../contexts/UserAuthContext";
+import { Button } from 'react-bootstrap';
 
 const NavigationBar = () => {
   let [navbarScroll, setNavbarScroll] = useState(false);
@@ -52,27 +53,27 @@ const NavigationBar = () => {
               <Nav.Link
                 as={NavLink}
                 to="/dashboard/write-new"
-                className={`custom-navbar-link right-navlinks ${navbarScroll ? "scrolled" : ""
+                className={`custom-navbar-link navbar-buttons ${navbarScroll ? "scrolled" : ""
                   }`}
               >
                 Dashboard
               </Nav.Link>
             ) : (
               <Nav>
-                <Nav.Link
+                <Button
                   as={NavLink}
                   to="/login"
-                  className={`custom-navbar-link right-navlinks me-2 ${navbarScroll ? "scrolled" : ""}`}
+                  className={`custom-navbar-link navbar-buttons me-2 ${navbarScroll ? "scrolled" : ""}`}
                 >
                   Login
-                </Nav.Link>
-                <Nav.Link
+                </Button>
+                <Button
                   as={NavLink}
                   to="/signup"
-                  className={`custom-navbar-link right-navlinks ms-2 ${navbarScroll ? "scrolled" : ""}`}
+                  className={`custom-navbar-link navbar-buttons ms-2 ${navbarScroll ? "scrolled" : ""}`}
                 >
                   Signup
-                </Nav.Link>
+                </Button>
               </Nav>
             )}
           </Nav>
