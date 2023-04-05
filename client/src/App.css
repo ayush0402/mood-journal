@@ -52,6 +52,13 @@ body {
   font-weight: 600;
   text-decoration: underline;
 }
+.right-navlinks{
+  color: black;
+  background-color: #f68989;
+  border:black;
+  border-radius: 30px;
+
+}
 /* Home Page */
 
 /* Header */

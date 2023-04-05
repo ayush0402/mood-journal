@@ -45,33 +45,35 @@ const NavigationBar = () => {
             >
               Contact Us
             </Nav.Link>
-            <Nav.Link
-              as={NavLink}
-              to="/login"
-              className={`custom-navbar-link ${navbarScroll ? "scrolled" : ""}`}
-            >
-              Login
-            </Nav.Link>
-            <Nav.Link
-              as={NavLink}
-              to="/signup"
-              className={`custom-navbar-link ${navbarScroll ? "scrolled" : ""}`}
-            >
-              Signup
-            </Nav.Link>
+          </Nav>
+          <Nav>
             {/* While signin on home Dashboard button on navbar works but not changing url. */}
             {user ? (
               <Nav.Link
                 as={NavLink}
                 to="/dashboard/write-new"
-                className={`custom-navbar-link ${
-                  navbarScroll ? "scrolled" : ""
-                }`}
+                className={`custom-navbar-link right-navlinks ${navbarScroll ? "scrolled" : ""
+                  }`}
               >
                 Dashboard
               </Nav.Link>
             ) : (
-              ""
+              <Nav>
+                <Nav.Link
+                  as={NavLink}
+                  to="/login"
+                  className={`custom-navbar-link right-navlinks me-2 ${navbarScroll ? "scrolled" : ""}`}
+                >
+                  Login
+                </Nav.Link>
+                <Nav.Link
+                  as={NavLink}
+                  to="/signup"
+                  className={`custom-navbar-link right-navlinks ms-2 ${navbarScroll ? "scrolled" : ""}`}
+                >
+                  Signup
+                </Nav.Link>
+              </Nav>
             )}
           </Nav>
         </Navbar.Collapse>
