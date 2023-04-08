@@ -13,8 +13,11 @@ import feature4 from "../assets/meditation.svg";
 import contact_image from "../assets/contact.svg";
 import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useUserAuth } from "../contexts/UserAuthContext";
 
 const Home = ({ testimonies }) => {
+
+  const { user } = useUserAuth();
   let navigate = useNavigate();
 
   let goSignUp = () => {
@@ -32,18 +35,23 @@ const Home = ({ testimonies }) => {
               <p className="header-motto">
                 A digital way to track and uplift your mood.
               </p>
-              <div className="header-buttons">
-                <Button
-                  onClick={() => {
-                    navigate("/login");
-                  }}
-                >
-                  Log In
-                </Button>
-                <Button style={{ marginLeft: 10 }} onClick={goSignUp}>
-                  Sign Up
-                </Button>
-              </div>
+              {user ? (<Button style={{ marginLeft: 10 }} onClick={() => {
+                navigate("/dashboard/write-new");
+              }}>
+                Dashboard
+              </Button>) :
+                <div className="header-buttons">
+                  <Button
+                    onClick={() => {
+                      navigate("/login");
+                    }}
+                  >
+                    Log In
+                  </Button>
+                  <Button style={{ marginLeft: 10 }} onClick={goSignUp}>
+                    Sign Up
+                  </Button>
+                </div>}
             </Col>
             <Col xs="12" lg="6">
               <img

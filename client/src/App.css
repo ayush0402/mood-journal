@@ -52,6 +52,24 @@ body {
   font-weight: 600;
   text-decoration: underline;
 }
+.navbar-buttons{
+  color: black;
+  background-color: #f68989;
+  border:black 1px solid;
+  border-radius: 30px;
+
+}
+.navbar-buttons.scrolled{
+  background-color: #874356;
+  color: #f6e7d8;
+  border: none;
+}
+
+.navbar-buttons:hover{
+  background-color: #c65d78;
+  border-color: black;
+
+}
 /* Home Page */
 
 /* Header */

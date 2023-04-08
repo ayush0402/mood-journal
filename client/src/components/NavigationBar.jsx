@@ -4,14 +4,19 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink, useLocation } from "react-router-dom";
 import { useUserAuth } from "../contexts/UserAuthContext";
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router';
 
 const NavigationBar = () => {
   let [navbarScroll, setNavbarScroll] = useState(false);
   const { user } = useUserAuth();
+  
+  let navigate = useNavigate();
 
   window.addEventListener("scroll", () => {
     setNavbarScroll(window.scrollY >= 80 ? true : false);
   });
+
 
   return (
     <Navbar
@@ -45,38 +50,40 @@ const NavigationBar = () => {
             >
               Contact Us
             </Nav.Link>
-            <Nav.Link
-              as={NavLink}
-              to="/login"
-              className={`custom-navbar-link ${navbarScroll ? "scrolled" : ""}`}
-            >
-              Login
-            </Nav.Link>
-            <Nav.Link
-              as={NavLink}
-              to="/signup"
-              className={`custom-navbar-link ${navbarScroll ? "scrolled" : ""}`}
-            >
-              Signup
-            </Nav.Link>
+          </Nav>
+          <Nav>
             {/* While signin on home Dashboard button on navbar works but not changing url. */}
             {user ? (
-              <Nav.Link
-                as={NavLink}
+              <Button
                 to="/dashboard/write-new"
-                className={`custom-navbar-link ${
-                  navbarScroll ? "scrolled" : ""
-                }`}
+                className={`custom-navbar-link navbar-buttons shadow ${navbarScroll ? "scrolled" : ""}`}
+                onClick={() => { navigate('/dashboard/write-new') }
+                }
               >
                 Dashboard
-              </Nav.Link>
+              </Button>
             ) : (
-              ""
+              <Nav>
+                <Button
+                  to="/login"
+                  className={`custom-navbar-link navbar-buttons shadow me-2 ${navbarScroll ? "scrolled" : ""}`}
+                  onClick={() => { navigate('/login') }}
+                >
+                  Login
+                </Button>
+                <Button
+                  to="/signup"
+                  className={`custom-navbar-link navbar-buttons shadow me-2 ${navbarScroll ? "scrolled" : ""}`}
+                  onClick={() => { navigate('/signup') }}
+                >
+                  Signup
+                </Button>
+              </Nav>
             )}
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar>
+    </Navbar >
   );
 };
 
