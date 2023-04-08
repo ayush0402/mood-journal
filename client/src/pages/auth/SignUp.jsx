@@ -15,19 +15,17 @@ import { useUserAuth } from "../../contexts/UserAuthContext";
 
 export default function SignUp() {
   const navigate = useNavigate();
-
+  const { signUp } = useUserAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { signUp } = useUserAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-
     try {
-      await signUp(email, password);
+      await signUp(name, email, password);
       navigate("/dashboard/write-new");
     } catch (error) {
       setError(error.message);
