@@ -55,9 +55,14 @@ body {
 .navbar-buttons{
   color: black;
   background-color: #f68989;
-  border:black;
+  border:black 1px solid;
   border-radius: 30px;
 
+}
+.navbar-buttons.scrolled{
+  background-color: #874356;
+  color: #f6e7d8;
+  border: none;
 }
 
 .navbar-buttons:hover{
