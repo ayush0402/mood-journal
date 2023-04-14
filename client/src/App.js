@@ -7,6 +7,7 @@ import SignUp from "./pages/auth/SignUp";
 import LogIn from "./pages/auth/LogIn";
 import WriteNew from "./pages/dashboard/WriteNew";
 import PublicJournals from "./pages/dashboard/PublicJournals";
+import PostViewPage from "./pages/dashboard/PostViewPage";
 import CalendarView from "./pages/dashboard/CalendarView";
 import Uplift from "./pages/dashboard/Uplift";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -14,7 +15,10 @@ import { UserAuthContextProvider } from "./contexts/UserAuthContext";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import Meditate from "./pages/dashboard/uplift/Meditate";
 
+import axios from "axios";
 function App() {
+  axios.defaults.baseURL = "http://localhost:5000/";
+
   const testimonies = [
     {
       name: "John Doe",
@@ -44,6 +48,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <WriteNew />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/public-journals/:postId"
+            element={
+              <ProtectedRoute>
+                <PostViewPage />
               </ProtectedRoute>
             }
           />
