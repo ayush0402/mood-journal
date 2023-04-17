@@ -93,6 +93,7 @@ const Sidebar = ({
           >
             Uplift
             <NavLink to="/dashboard/uplift" />
+          
           </MenuItem>
           <MenuItem icon={<FaGem />}>
             Home <NavLink to="/" />

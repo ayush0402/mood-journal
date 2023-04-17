@@ -1,7 +1,9 @@
 import { Row, Col, Card, Container, Button, Dropdown } from 'react-bootstrap';
 import { audioClips } from '../../../assets/audios';
 import React, { useState, useRef, useEffect } from 'react';
-import Player from '../../../components/Player';
+import Player from '../../../components/AudioPlayer';
+import DashboardLayout from "../../../components/DashboardLayout";
+
 
 const Meditate = () => {
 
@@ -36,29 +38,31 @@ const Meditate = () => {
   }
   return (
     <>
-      <Container className="meditate">
-        <audio src={currentAudio.url} ref={audioElem} onTimeUpdate={onPlaying}></audio>
-        <h1 className="text-center mt-5">Meditate</h1>
-        <Row>
-          <Col className="mt-5 audio-play-btn">
-            <Card className="shadow">
-              {audioClips.map(
-                (audio) => (
-                  <div key={audio.id}>
-                    <Row>
-                      <Col><h5
-                       className="ms-4 mt-2 mb-2">{audio.title}</h5></Col>
-                      <Col md={3}><Button className="ms-4 mt-2 mb-2" onClick={() => playAudio(audio)}>Play</Button></Col>
-                    </Row>
-                  </div>
-                ))}
-            </Card>
-          </Col>
-          <Col className="mt-5">
-            <Player className="mt-6" audioElem={audioElem} audios={audios} setAudios={setAudios} isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentAudio={currentAudio} setCurrentAudio={setCurrentAudio} />
-          </Col>
-        </Row>
-      </Container>
+      <DashboardLayout>
+        <Container className="meditate">
+          <audio src={currentAudio.url} ref={audioElem} onTimeUpdate={onPlaying}></audio>
+          <h1 className="text-center mt-5">Meditate</h1>
+          <Row>
+            <Col className="mt-5 audio-play-btn">
+              <Card className="shadow">
+                {audioClips.map(
+                  (audio) => (
+                    <div key={audio.id}>
+                      <Row>
+                        <Col><h5
+                          className="ms-4 mt-2 mb-2">{audio.title}</h5></Col>
+                        <Col md={3}><Button className="ms-4 mt-2 mb-2" onClick={() => playAudio(audio)}>Play</Button></Col>
+                      </Row>
+                    </div>
+                  ))}
+              </Card>
+            </Col>
+            <Col className="mt-5">
+              <Player className="mt-6" audioElem={audioElem} audios={audios} setAudios={setAudios} isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentAudio={currentAudio} setCurrentAudio={setCurrentAudio} />
+            </Col>
+          </Row>
+        </Container>
+      </DashboardLayout>
     </>
   )
 }
