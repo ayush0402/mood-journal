@@ -6,6 +6,7 @@ import NotFound from "./pages/NotFound";
 import SignUp from "./pages/auth/SignUp";
 import LogIn from "./pages/auth/LogIn";
 import WriteNew from "./pages/dashboard/WriteNew";
+import PrivateJournals from "./pages/dashboard/PrivateJournals";
 import PublicJournals from "./pages/dashboard/PublicJournals";
 import PostViewPage from "./pages/dashboard/PostViewPage";
 import CalendarView from "./pages/dashboard/CalendarView";
@@ -54,6 +55,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <PostViewPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/private-journals"
+            element={
+              <ProtectedRoute>
+                <PrivateJournals />
               </ProtectedRoute>
             }
           />

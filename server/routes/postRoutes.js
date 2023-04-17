@@ -12,8 +12,16 @@ router.get("/s-analyzer", (req, res) => {
 });
 
 router.get("/all", async (req, res) => {
-  const allPosts = await Post.find({});
+  const allPosts = await Post.find({ visibility: true });
   res.json(allPosts);
+});
+
+router.get("/get-posts-by-user", async (req, res) => {
+  const userId = req.query["user_id"];
+  console.log("query user", userId);
+  const id = new mongoose.Types.ObjectId(userId);
+  const userPosts = await Post.find({ author_id: id });
+  res.status(200).send(userPosts);
 });
 
 router.get("/get-post-by-id", async (req, res) => {

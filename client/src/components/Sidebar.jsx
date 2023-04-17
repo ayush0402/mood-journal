@@ -78,6 +78,9 @@ const Sidebar = ({
           </MenuItem>
           {/* <MenuItem icon={<FaGem />}>Components </MenuItem> */}
           <MenuItem icon={<FaGem />}>
+            Private Journals <NavLink to="/dashboard/private-journals" />
+          </MenuItem>
+          <MenuItem icon={<FaGem />}>
             Public Journals <NavLink to="/dashboard/public-journals" />
           </MenuItem>
           <MenuItem
