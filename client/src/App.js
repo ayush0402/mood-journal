@@ -10,10 +10,12 @@ import PrivateJournals from "./pages/dashboard/PrivateJournals";
 import PublicJournals from "./pages/dashboard/PublicJournals";
 import PostViewPage from "./pages/dashboard/PostViewPage";
 import CalendarView from "./pages/dashboard/CalendarView";
-import Meditation from "./pages/dashboard/Meditation";
+import Uplift from "./pages/dashboard/Uplift";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { UserAuthContextProvider } from "./contexts/UserAuthContext";
 import ForgotPassword from "./pages/auth/ForgotPassword";
+import Meditate from "./pages/dashboard/uplift/Meditate";
+
 import axios from "axios";
 function App() {
   axios.defaults.baseURL = "http://localhost:5000/";
@@ -83,13 +85,22 @@ function App() {
             }
           />
           <Route
-            path="/dashboard/meditate"
+            path="/dashboard/uplift/meditate"
             element={
               <ProtectedRoute>
-                <Meditation />
+                <Meditate/>
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/dashboard/uplift"
+            element={
+              <ProtectedRoute>
+                <Uplift />
+              </ProtectedRoute>
+            }
+          />
+
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />

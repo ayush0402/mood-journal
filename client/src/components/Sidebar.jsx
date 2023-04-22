@@ -94,8 +94,9 @@ const Sidebar = ({
             icon={<FaTachometerAlt />}
             suffix={<span className="badge red">NEW</span>}
           >
-            Meditate
-            <NavLink to="/dashboard/meditate" />
+            Uplift
+            <NavLink to="/dashboard/uplift" />
+          
           </MenuItem>
           <MenuItem icon={<FaGem />}>
             Home <NavLink to="/" />
