@@ -52,13 +52,11 @@ body {
   font-weight: 600;
   text-decoration: underline;
 }
-
 .navbar-buttons {
   color: black;
   background-color: #f68989;
   border: black 1px solid;
   border-radius: 30px;
-
 }
 
 .navbar-buttons.scrolled {
@@ -70,7 +68,6 @@ body {
 .navbar-buttons:hover {
   background-color: #c65d78;
   border-color: black;
-
 }
 
 /* Home Page */
@@ -345,7 +342,7 @@ body {
   background-color: black;
 }
 
-.player-container>* {
+.player-container > * {
   padding: 1rem 0;
   color: #cacaca;
 }
@@ -446,9 +443,9 @@ body {
 
 /* Quotes Component  */
 .quote-content {
-  font-family: 'Rouge Script', cursive;
+  font-family: "Rouge Script", cursive;
 }
 
 .quote-author {
-  font-family: 'Rouge Script', cursive;
+  font-family: "Rouge Script", cursive;
 }

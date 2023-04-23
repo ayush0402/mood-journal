@@ -19,7 +19,7 @@ const PostCardView = ({ post }) => {
       <Card
         bg={variant.toLowerCase()}
         key={_id}
-        text={variant.toLowerCase() === "light" ? "dark" : "white"}
+        text={variant.toLowerCase() === "warning" ? "dark" : "white"}
         style={{ cursor: "pointer" }}
         className="mb-2 post-card-view"
         onClick={openPost}
