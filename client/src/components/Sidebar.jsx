@@ -69,10 +69,7 @@ const Sidebar = ({
       {/* Content */}
       <SidebarContent>
         <Menu iconShape="circle">
-          <MenuItem
-            icon={<FaTachometerAlt />}
-            suffix={<span className="badge red">NEW</span>}
-          >
+          <MenuItem icon={<FaTachometerAlt />}>
             Write
             <NavLink to="/dashboard/write-new" />
           </MenuItem>
@@ -83,10 +80,7 @@ const Sidebar = ({
           <MenuItem icon={<FaGem />}>
             Public Journals <NavLink to="/dashboard/public-journals" />
           </MenuItem>
-          <MenuItem
-            icon={<FaTachometerAlt />}
-            suffix={<span className="badge red">NEW</span>}
-          >
+          <MenuItem icon={<FaTachometerAlt />}>
             Insights
             <NavLink to="/dashboard/insights" />
           </MenuItem>

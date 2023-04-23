@@ -52,23 +52,21 @@ body {
   font-weight: 600;
   text-decoration: underline;
 }
-.navbar-buttons{
+.navbar-buttons {
   color: black;
   background-color: #f68989;
-  border:black 1px solid;
+  border: black 1px solid;
   border-radius: 30px;
-
 }
-.navbar-buttons.scrolled{
+.navbar-buttons.scrolled {
   background-color: #874356;
   color: #f6e7d8;
   border: none;
 }
 
-.navbar-buttons:hover{
+.navbar-buttons:hover {
   background-color: #c65d78;
   border-color: black;
-
 }
 /* Home Page */
 
@@ -370,11 +368,11 @@ body {
 .player-container .controls .pp {
   font-size: 4rem;
 }
-.audio-play-btn Button{
+.audio-play-btn Button {
   background-color: #f68989;
   border-color: #874356;
 }
-.audio-play-btn Button:hover{
+.audio-play-btn Button:hover {
   background-color: #c65d78;
   border-color: black;
 }

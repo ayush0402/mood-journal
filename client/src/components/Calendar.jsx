@@ -17,17 +17,28 @@ const Calendar = ({ posts }) => {
   for (let ele of posts) {
     let eventColor;
     let textColor = "white";
+    let eventTitle;
     let sentimentDecimal = Number(ele.sentiment.$numberDecimal);
-    if (sentimentDecimal < -0.5) eventColor = "red";
-    else if (sentimentDecimal < 0) eventColor = "orange";
-    else if (sentimentDecimal === 0) {
+    if (sentimentDecimal < -0.5) {
+      eventColor = "red";
+      eventTitle = "v.negative";
+    } else if (sentimentDecimal < 0) {
+      eventColor = "orange";
+      eventTitle = "negative";
+    } else if (sentimentDecimal === 0) {
       eventColor = "yellow";
+      eventTitle = "neutral";
       textColor = "black";
-    } else if (sentimentDecimal < 0.5) eventColor = "lime";
-    else eventColor = "green";
-
+    } else if (sentimentDecimal < 0.5) {
+      eventColor = "lightgreen";
+      textColor = "black";
+      eventTitle = "positive";
+    } else {
+      eventColor = "green";
+      eventTitle = "v.postitive";
+    }
     events.push({
-      title: ele.sentiment.$numberDecimal,
+      title: eventTitle,
       start: getDate(ele.date),
       end: getDate(ele.date),
       backgroundColor: eventColor,
