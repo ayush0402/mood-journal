@@ -52,13 +52,19 @@ body {
   font-weight: 600;
   text-decoration: underline;
 }
-.navbar-buttons {
+<<<<<<<
+  HEAD
+  =======>>>>>>>83c8fddb26db465545e8939003d7b8e2f57db676
+  .navbar-buttons {
   color: black;
   background-color: #f68989;
   border: black 1px solid;
   border-radius: 30px;
 }
-.navbar-buttons.scrolled {
+<<<<<<<
+  HEAD
+  =======>>>>>>>83c8fddb26db465545e8939003d7b8e2f57db676
+  .navbar-buttons.scrolled {
   background-color: #874356;
   color: #f6e7d8;
   border: none;
@@ -68,6 +74,7 @@ body {
   background-color: #c65d78;
   border-color: black;
 }
+
 /* Home Page */
 
 /* Header */
@@ -139,6 +146,7 @@ body {
 .testimonial-form-link {
   color: #f6e7d8;
 }
+
 /* Contact Section */
 
 .contact-section {
@@ -220,6 +228,7 @@ body {
   justify-content: space-around;
   width: 50%;
 }
+
 .contact-widget {
   margin: 10px 10px 10px 10px;
   padding: 8px 8px 8px 8px;
@@ -228,11 +237,13 @@ body {
   display: flex;
   justify-content: space-around;
 }
+
 .contact-form-wrapper {
   /* border: 2px blue solid; */
   padding: 10px 10px 10px 10px;
   margin-top: 2%;
 }
+
 .btn.btn-primary.mb-4 {
   margin-top: 10px;
   /* border: 2px solid red; */
@@ -242,10 +253,12 @@ body {
   /* border: 2px solid red; */
   margin-top: -17px;
 }
+
 .col-md-6 {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
 .contact-us-container {
   padding: 3% 5% 3%;
 }
@@ -267,6 +280,7 @@ body {
   background-color: #c65d78;
   border-color: black;
 }
+
 .login-form {
   padding: 0 10% 0 10%;
 }
@@ -284,6 +298,7 @@ body {
   background: #fff;
   padding: 0 10px;
 }
+
 /* SignUp Page */
 
 /* SignUp image */
@@ -305,11 +320,13 @@ body {
   background-color: #f68989;
   border-color: #874356;
 }
+
 .signup-form-section p {
   text-align: center;
   margin: auto auto;
   margin-top: 2%;
 }
+
 .signup-form {
   padding: 0 10% 0 10%;
 }
@@ -329,16 +346,20 @@ body {
   justify-content: space-between;
   background-color: black;
 }
+
 .player-container > * {
   padding: 1rem 0;
   color: #cacaca;
 }
+
 .player-container .title {
   font-size: inherit;
 }
+
 .player-container .navigation {
   width: 100%;
 }
+
 .player-container .navigation .navigation-wrapper {
   min-width: 100%;
   background-color: rgba(119, 119, 119, 0.781);
@@ -346,36 +367,44 @@ body {
   border-radius: 30px;
   cursor: pointer;
 }
+
 .player-container .navigation .navigation-wrapper .seek-bar {
   width: 0;
   height: 100%;
   background-color: #188003;
   border-radius: 30px;
 }
+
 .player-container .controls {
   font-size: inherit;
   display: flex;
   align-items: center;
 }
+
 .player-container .controls .btn-action {
   font-size: 2rem;
   margin: 0 1rem;
   cursor: pointer;
 }
+
 .player-container .controls .btn-action:hover {
   color: white;
 }
+
 .player-container .controls .pp {
   font-size: 4rem;
 }
+
 .audio-play-btn Button {
   background-color: #f68989;
   border-color: #874356;
 }
+
 .audio-play-btn Button:hover {
   background-color: #c65d78;
   border-color: black;
 }
+
 /* Write New Page */
 
 .write-new Button {
@@ -399,4 +428,29 @@ body {
 
 .post-view-container {
   padding: 2% 3%;
+}
+
+/*Uplift Page */
+.img-fluid {
+  width: 100%;
+  height: auto;
+}
+
+.uplift Button {
+  background-color: #f68989;
+  border-color: #874356;
+}
+
+.uplift Button:hover {
+  background-color: #c65d78;
+  border-color: black;
+}
+
+/* Quotes Component  */
+.quote-content {
+  font-family: "Rouge Script", cursive;
+}
+
+.quote-author {
+  font-family: "Rouge Script", cursive;
 }
