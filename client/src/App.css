@@ -52,19 +52,14 @@ body {
   font-weight: 600;
   text-decoration: underline;
 }
-<<<<<<<
-  HEAD
-  =======>>>>>>>83c8fddb26db465545e8939003d7b8e2f57db676
-  .navbar-buttons {
+.navbar-buttons {
   color: black;
   background-color: #f68989;
   border: black 1px solid;
   border-radius: 30px;
 }
-<<<<<<<
-  HEAD
-  =======>>>>>>>83c8fddb26db465545e8939003d7b8e2f57db676
-  .navbar-buttons.scrolled {
+
+.navbar-buttons.scrolled {
   background-color: #874356;
   color: #f6e7d8;
   border: none;
