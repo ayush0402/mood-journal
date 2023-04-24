@@ -4,7 +4,6 @@ import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import { Card } from "react-bootstrap";
 
 const Calendar = ({ posts }) => {
-  console.log(posts);
   const events = [];
 
   function getDate(dayString) {

@@ -41,7 +41,7 @@ const Uplift = () => {
             <Col xs={12} md={6}>
               <h2>Therapist Bot</h2>
               <p>
-                A therapist bot is a type of conversational agent or chatbot
+                A therapist bot is a type of conversational agent or bot
                 designed to provide mental health support and counseling to
                 individuals in need. We leverage ChatGPT to help you out in most
                 human way possible.

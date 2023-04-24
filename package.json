@@ -33,6 +33,8 @@
     "mongoose": "^7.0.2",
     "morgan": "^1.10.0",
     "natural": "^6.2.0",
+    "react-apexcharts": "^1.4.0",
+    "recharts": "^2.5.0",
     "spelling-corrector": "^3.0.0",
     "stopword": "^2.0.8"
   }
