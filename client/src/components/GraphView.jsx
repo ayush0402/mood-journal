@@ -44,10 +44,6 @@ const GraphView = ({ posts }) => {
         show: false,
       },
     },
-    yaxis: {
-      min: -5,
-      max: 5,
-    },
   };
   const series = [
     {

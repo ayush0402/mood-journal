@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import Calendar from "../../components/Calendar";
 import DashboardLayout from "../../components/DashboardLayout";
 import axios from "axios";
@@ -31,7 +31,6 @@ const Insights = () => {
             user_id: userId,
           },
         });
-        // Reversing as to get latest post on the top.
         setPosts(response);
       } catch (error) {
         console.error(error.message);
@@ -45,19 +44,21 @@ const Insights = () => {
   return (
     <>
       <DashboardLayout>
-        <Container>
-          <div>
-            {loading && <div>Loading</div>}
-            {!loading && (
-              <div>
-                <h1>Graph View</h1>
+        <div>
+          {loading && <div>Loading</div>}
+          {!loading && (
+            <Row>
+              <Col xs={12} xl={6}>
+                <h1>Mood Chart</h1>
                 <GraphView posts={posts} />
-                <h1>Calendar View</h1>
+              </Col>
+              <Col xs={12} xl={6}>
+                <h1>Calendar</h1>
                 <Calendar posts={posts} />
-              </div>
-            )}
-          </div>
-        </Container>
+              </Col>
+            </Row>
+          )}
+        </div>
       </DashboardLayout>
     </>
   );
