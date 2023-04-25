@@ -419,15 +419,7 @@ body {
 .other-resources{
   margin-left: 20px;
 }
-.resources Button{
-  background-color: #f68989;
-  border-color: #874356;
-}
 
-.resources Button:hover{
-  background-color: #c65d78;
-  border-color: black;
-}
 .emergency-call:hover{
   opacity: 0.6;
   box-shadow: 2px 4px 5px;
