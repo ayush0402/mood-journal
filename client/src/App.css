@@ -13,6 +13,18 @@ body {
   font-family: "Ubuntu", "sans-serif";
 }
 
+.global-theme-button {
+  margin: 10px auto 20px;
+  color: black;
+  background-color: #f68989;
+  border-color: black;
+}
+
+.global-theme-button:hover {
+  background-color: #c65d78;
+  border-color: black;
+}
+
 /* Navigation Bar */
 .custom-navbar {
   background-color: #874356;
@@ -450,6 +462,16 @@ body {
   font-family: "Rouge Script", cursive;
 }
 
+.journals-list-text {
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.journals-list-text p {
+  font-size: large;
+}
 /*Uplift Page */
 .img-fluid {
   width: 100%;
@@ -477,35 +499,33 @@ body {
 
 /* Resources Page  */
 
-.resources .heading{
+.resources .heading {
   background-color: #f68989;
-  color:#dadada;
-  border-radius: 3px;;
+  color: #dadada;
+  border-radius: 3px;
 }
-.helpline-links{
+.helpline-links {
   margin-top: 20px;
 }
-.resources Col{
+.resources Col {
   border: 2px solid black;
 }
-.other-resources{
+.other-resources {
   margin-left: 20px;
 }
 
-.emergency-call:hover{
+.emergency-call:hover {
   opacity: 0.6;
   box-shadow: 2px 4px 5px;
 }
-.resources-blogging:hover{
+.resources-blogging:hover {
   opacity: 0.6;
   box-shadow: 2px 4px 5px;
-
 }
-.support-group:hover{
+.support-group:hover {
   opacity: 0.6;
   box-shadow: 2px 4px 5px;
-
 }
-.helpline-number{
+.helpline-number {
   color: darkslategrey;
 }

@@ -47,12 +47,21 @@ const Therapist = () => {
                     onChange={(event) => setContent(event.target.value)}
                   />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button
+                  variant="primary"
+                  type="submit"
+                  className="global-theme-button"
+                >
                   Submit
                 </Button>
               </Form>
             </Card.Body>
           </Card>
+          <footer className="bg-light py-3 mt-5">
+            <Container>
+              <p className="text-center">Powered by OpenAI's GPT-3.5</p>
+            </Container>
+          </footer>
         </Container>
       </DashboardLayout>
     </>

@@ -1,7 +1,9 @@
 import DashboardLayout from "../../components/DashboardLayout";
+import WaveRobot from "../../components/animations/WaveRobot";
 import { useUserAuth } from "../../contexts/UserAuthContext";
 import { Card, Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useState } from "react";
+import { TypeAnimation } from "react-type-animation";
 import axios from "axios";
 
 const WriteNew = () => {
@@ -37,8 +39,33 @@ const WriteNew = () => {
 
   return (
     <DashboardLayout>
-      <Container className="write-new">
-        <Row className="vh-100 d-flex justify-content-center align-items-center">
+      <div className="write-new">
+        <Row>
+          <Col xs={12} md={6}>
+            <WaveRobot />
+          </Col>
+          <Col
+            className="d-flex justify-content-center align-items-center"
+            xs={12}
+            md={6}
+          >
+            <TypeAnimation
+              sequence={[
+                "Hey there!",
+                2000,
+                "How did your day went today?",
+                2000,
+                "Tell me about it.",
+                2000,
+              ]}
+              wrapper="span"
+              cursor={true}
+              repeat={Infinity}
+              style={{ fontSize: "2em", display: "inline-block" }}
+            />
+          </Col>
+        </Row>
+        <Row className="mt-4 d-flex justify-content-center align-items-center">
           <Col className="login-form">
             <Card className="shadow">
               <Card.Body>
@@ -77,7 +104,7 @@ const WriteNew = () => {
             </Card>
           </Col>
         </Row>
-      </Container>
+      </div>
     </DashboardLayout>
   );
 };

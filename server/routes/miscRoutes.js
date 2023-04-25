@@ -28,7 +28,7 @@ router.post("/therapy", async (req, res) => {
             "Provide insights based on the given prompt to help them positively channel their emotions.",
         },
       ],
-      max_tokens: 100,
+      max_tokens: 300,
       temperature: 0,
       top_p: 1.0,
       frequency_penalty: 0.0,

@@ -3,6 +3,7 @@ import DashboardLayout from "../../components/DashboardLayout";
 import axios from "axios";
 import PostCardView from "../../components/PostCardView";
 import { useUserAuth } from "../../contexts/UserAuthContext";
+import { Container } from "react-bootstrap";
 
 const PrivateJournals = () => {
   const [loading, setLoading] = useState(true);
@@ -52,15 +53,24 @@ const PrivateJournals = () => {
         {loading && <div>Loading</div>}
         {!loading && (
           <div>
-            {posts.map((post) => {
-              return (
-                <PostCardView
-                  post={post}
-                  isPrivate={true}
-                  deletePostFromArray={deletePostFromArray}
-                />
-              );
-            })}
+            <div className="journals-list-text">
+              <h2>Ready to reflect back on your thoughts?</h2>
+              <p>
+                Reflecting back on yourself is a great way of self-help and
+                personal growth.
+              </p>
+            </div>
+            <div>
+              {posts.map((post) => {
+                return (
+                  <PostCardView
+                    post={post}
+                    isPrivate={true}
+                    deletePostFromArray={deletePostFromArray}
+                  />
+                );
+              })}
+            </div>
           </div>
         )}
       </div>
