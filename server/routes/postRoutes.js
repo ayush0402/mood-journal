@@ -51,6 +51,16 @@ router.post("/new", async (req, res) => {
   res.sendStatus(200);
 });
 
+router.delete("/delete/:id", async (req, res) => {
+  const postId = req.params.id;
+  try {
+    await Post.deleteOne({ _id: postId });
+    return res.status(200).json({ success: true, msg: "Post Deleted" });
+  } catch (err) {
+    console.error(err);
+  }
+});
+
 router.post("/add-new-comment", async (req, res) => {
   const _comment = req.body;
   const content = _comment.content;

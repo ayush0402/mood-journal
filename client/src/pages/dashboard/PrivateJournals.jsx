@@ -9,6 +9,11 @@ const PrivateJournals = () => {
   const [posts, setPosts] = useState([]);
   const { user } = useUserAuth();
 
+  const deletePostFromArray = (id) => {
+    const updatedPosts = posts.filter((post) => post._id !== id);
+    setPosts(updatedPosts);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -48,7 +53,13 @@ const PrivateJournals = () => {
         {!loading && (
           <div>
             {posts.map((post) => {
-              return <PostCardView post={post} />;
+              return (
+                <PostCardView
+                  post={post}
+                  isPrivate={true}
+                  deletePostFromArray={deletePostFromArray}
+                />
+              );
             })}
           </div>
         )}
