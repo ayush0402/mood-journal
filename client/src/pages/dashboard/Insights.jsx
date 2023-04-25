@@ -47,16 +47,41 @@ const Insights = () => {
         <div>
           {loading && <div>Loading</div>}
           {!loading && (
-            <Row>
-              <Col xs={12} xl={6}>
-                <h1>Mood Chart</h1>
-                <GraphView posts={posts} />
-              </Col>
-              <Col xs={12} xl={6}>
-                <h1>Calendar</h1>
-                <Calendar posts={posts} />
-              </Col>
-            </Row>
+            <>
+              <h2 className="mt-3 mb-3">Track your feelings!</h2>
+              <Row className="mb-5 mt-2">
+                <Col xs={12} xl={8}>
+                  <GraphView posts={posts} />
+                </Col>
+                <Col xs={12} xl={4} className="journals-list-text">
+                  <h1>Mood Chart</h1>
+                  <p>
+                    This graph provides insights into your mood over a period of
+                    time. Positive values on the graph indicate that the user
+                    experienced a good mood, while negative values suggest a
+                    not-so-good mood. By tracking these values, the you can gain
+                    insights into your emotional well-being and identify any
+                    patterns or triggers that may be impacting your mood.
+                  </p>
+                </Col>
+              </Row>
+              <Row className="mt-5">
+                <Col xs={12} xl={4} className="journals-list-text">
+                  <h1>Calendar</h1>
+                  <p>
+                    This calendar tracks the your mood on a daily basis, with
+                    red indicating a negative or bad mood, yellow representing a
+                    neutral mood, and green indicating a positive or good mood.
+                    By using these colors to represent you mood, the you can
+                    easily visualize patterns and trends in your emotional
+                    well-being over time.
+                  </p>
+                </Col>
+                <Col xs={12} xl={8}>
+                  <Calendar posts={posts} />
+                </Col>
+              </Row>
+            </>
           )}
         </div>
       </DashboardLayout>
