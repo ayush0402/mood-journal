@@ -9,7 +9,6 @@ import WriteNew from "./pages/dashboard/WriteNew";
 import PrivateJournals from "./pages/dashboard/PrivateJournals";
 import PublicJournals from "./pages/dashboard/PublicJournals";
 import PostViewPage from "./pages/dashboard/PostViewPage";
-import CalendarView from "./pages/dashboard/CalendarView";
 import Uplift from "./pages/dashboard/Uplift";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { UserAuthContextProvider } from "./contexts/UserAuthContext";
@@ -17,7 +16,8 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import Meditate from "./pages/dashboard/uplift/Meditate";
 import axios from "axios";
 import Resources from "./pages/dashboard/Resources";
-
+import Insights from "./pages/dashboard/Insights";
+import Therapist from "./pages/dashboard/uplift/Therapist";
 function App() {
   axios.defaults.baseURL = "http://localhost:5000/";
 
@@ -78,10 +78,10 @@ function App() {
             }
           />
           <Route
-            path="/dashboard/calendar-view"
+            path="/dashboard/insights"
             element={
               <ProtectedRoute>
-                <CalendarView />
+                <Insights />
               </ProtectedRoute>
             }
           />
@@ -89,7 +89,15 @@ function App() {
             path="/dashboard/uplift/meditate"
             element={
               <ProtectedRoute>
-                <Meditate/>
+                <Meditate />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/uplift/therapy"
+            element={
+              <ProtectedRoute>
+                <Therapist />
               </ProtectedRoute>
             }
           />

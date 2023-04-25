@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
+import { Row, Col } from "react-bootstrap";
+import Calendar from "../../components/Calendar";
 import DashboardLayout from "../../components/DashboardLayout";
 import axios from "axios";
-import PostCardView from "../../components/PostCardView";
 import { useUserAuth } from "../../contexts/UserAuthContext";
+import GraphView from "../../components/GraphView";
 
-const PrivateJournals = () => {
-  const [loading, setLoading] = useState(true);
+const Insights = () => {
   const [posts, setPosts] = useState([]);
   const { user } = useUserAuth();
-
-  const deletePostFromArray = (id) => {
-    const updatedPosts = posts.filter((post) => post._id !== id);
-    setPosts(updatedPosts);
-  };
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,8 +31,6 @@ const PrivateJournals = () => {
             user_id: userId,
           },
         });
-        // Reversing as to get latest post on the top.
-        response.reverse();
         setPosts(response);
       } catch (error) {
         console.error(error.message);
@@ -44,28 +39,29 @@ const PrivateJournals = () => {
     };
 
     fetchData();
-  }, []);
+  }, [user.email]);
 
   return (
-    <DashboardLayout>
-      <div>
-        {loading && <div>Loading</div>}
-        {!loading && (
-          <div>
-            {posts.map((post) => {
-              return (
-                <PostCardView
-                  post={post}
-                  isPrivate={true}
-                  deletePostFromArray={deletePostFromArray}
-                />
-              );
-            })}
-          </div>
-        )}
-      </div>
-    </DashboardLayout>
+    <>
+      <DashboardLayout>
+        <div>
+          {loading && <div>Loading</div>}
+          {!loading && (
+            <Row>
+              <Col xs={12} xl={6}>
+                <h1>Mood Chart</h1>
+                <GraphView posts={posts} />
+              </Col>
+              <Col xs={12} xl={6}>
+                <h1>Calendar</h1>
+                <Calendar posts={posts} />
+              </Col>
+            </Row>
+          )}
+        </div>
+      </DashboardLayout>
+    </>
   );
 };
 
-export default PrivateJournals;
+export default Insights;

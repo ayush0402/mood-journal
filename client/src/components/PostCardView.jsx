@@ -1,8 +1,10 @@
 import { Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import formatDate from "../utils/formatDate";
+import { FaTrashAlt } from "react-icons/fa";
+import axios from "axios";
 
-const PostCardView = ({ post }) => {
+const PostCardView = ({ post, isPrivate, deletePostFromArray }) => {
   const { _id, title, content, date, sentiment } = post;
   const navigate = useNavigate();
   let sentimentDecimal = Number(sentiment.$numberDecimal);
@@ -14,18 +16,34 @@ const PostCardView = ({ post }) => {
     navigate(`/dashboard/public-journals/${_id}`);
   };
 
+  const handleDelete = async () => {
+    try {
+      const res = await axios.delete(`/post/delete/${_id}`);
+      if (res.data.success) {
+        deletePostFromArray(_id);
+        alert(res.data.msg);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <>
       <Card
         bg={variant.toLowerCase()}
         key={_id}
-        text={variant.toLowerCase() === "light" ? "dark" : "white"}
+        text={variant.toLowerCase() === "warning" ? "dark" : "white"}
         style={{ cursor: "pointer" }}
         className="mb-2 post-card-view"
-        onClick={openPost}
       >
-        <Card.Header>{formatDate(date)}</Card.Header>
-        <Card.Body>
+        <Card.Header
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
+          {formatDate(date)}
+          {isPrivate && <FaTrashAlt onClick={handleDelete} />}
+        </Card.Header>
+        <Card.Body onClick={openPost}>
           <Card.Title>{title}</Card.Title>
           <Card.Text>{content.slice(0, 100)}...</Card.Text>
         </Card.Body>
