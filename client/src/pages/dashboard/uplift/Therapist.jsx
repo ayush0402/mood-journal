@@ -18,6 +18,7 @@ const Therapist = () => {
     } catch (error) {
       console.log("error sending data to therapist bot", error);
     }
+    setContent("What is bothering you?");
   };
 
   return (
@@ -25,10 +26,12 @@ const Therapist = () => {
       <DashboardLayout>
         <Container>
           <Row>
-            <Col style={{ margin: "auto" }}>
+            <Col style={{ margin: "auto" }} xs={12} md={6}>
               <AIRobot />
             </Col>
-            <Col style={{ margin: "auto", fontSize: 20 }}>{response}</Col>
+            <Col style={{ margin: "auto", fontSize: 20 }} xs={12} md={6}>
+              {response}
+            </Col>
           </Row>
           <Card className="shadow  mt-5">
             <Card.Body>
