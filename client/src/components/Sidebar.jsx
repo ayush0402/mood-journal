@@ -99,6 +99,9 @@ const Sidebar = ({
           
           </MenuItem>
           <MenuItem icon={<FaGem />}>
+            Resources <NavLink to="/dashboard/resources" />
+          </MenuItem>
+          <MenuItem icon={<FaGem />}>
             Home <NavLink to="/" />
           </MenuItem>
         </Menu>

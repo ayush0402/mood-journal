@@ -15,8 +15,9 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { UserAuthContextProvider } from "./contexts/UserAuthContext";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import Meditate from "./pages/dashboard/uplift/Meditate";
-
 import axios from "axios";
+import Resources from "./pages/dashboard/Resources";
+
 function App() {
   axios.defaults.baseURL = "http://localhost:5000/";
 
@@ -100,7 +101,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-
+          <Route path="/dashboard/resources" element={<Resources/>}/>
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
