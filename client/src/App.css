@@ -13,6 +13,18 @@ body {
   font-family: "Ubuntu", "sans-serif";
 }
 
+.global-theme-button {
+  margin: 10px auto 20px;
+  color: black;
+  background-color: #f68989;
+  border-color: black;
+}
+
+.global-theme-button:hover {
+  background-color: #c65d78;
+  border-color: black;
+}
+
 /* Navigation Bar */
 .custom-navbar {
   background-color: #874356;
@@ -448,4 +460,15 @@ body {
 
 .quote-author {
   font-family: "Rouge Script", cursive;
+}
+
+.journals-list-text {
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.journals-list-text p {
+  font-size: large;
 }

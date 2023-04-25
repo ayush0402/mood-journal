@@ -30,9 +30,18 @@ const PublicJournals = () => {
         {loading && <div>Loading</div>}
         {!loading && (
           <div>
-            {posts.map((post) => {
-              return <PostCardView post={post} isPrivate={false} />;
-            })}
+            <div className="journals-list-text">
+              <h2>Want to see what others are upto?</h2>
+              <p>
+                Read and relate to other people. Probably you can help them in
+                some way too? Just drop a friendly comment.
+              </p>
+            </div>
+            <div>
+              {posts.map((post) => {
+                return <PostCardView post={post} isPrivate={false} />;
+              })}
+            </div>
           </div>
         )}
       </div>

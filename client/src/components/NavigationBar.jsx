@@ -4,19 +4,18 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink, useLocation } from "react-router-dom";
 import { useUserAuth } from "../contexts/UserAuthContext";
-import { Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router';
+import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router";
 
 const NavigationBar = () => {
   let [navbarScroll, setNavbarScroll] = useState(false);
   const { user } = useUserAuth();
-  
+
   let navigate = useNavigate();
 
   window.addEventListener("scroll", () => {
     setNavbarScroll(window.scrollY >= 80 ? true : false);
   });
-
 
   return (
     <Navbar
@@ -56,9 +55,12 @@ const NavigationBar = () => {
             {user ? (
               <Button
                 to="/dashboard/write-new"
-                className={`custom-navbar-link navbar-buttons shadow ${navbarScroll ? "scrolled" : ""}`}
-                onClick={() => { navigate('/dashboard/write-new') }
-                }
+                className={`custom-navbar-link navbar-buttons shadow ${
+                  navbarScroll ? "scrolled" : ""
+                }`}
+                onClick={() => {
+                  navigate("/dashboard/write-new");
+                }}
               >
                 Dashboard
               </Button>
@@ -66,15 +68,23 @@ const NavigationBar = () => {
               <Nav>
                 <Button
                   to="/login"
-                  className={`custom-navbar-link navbar-buttons shadow me-2 ${navbarScroll ? "scrolled" : ""}`}
-                  onClick={() => { navigate('/login') }}
+                  className={`custom-navbar-link navbar-buttons shadow me-2 ${
+                    navbarScroll ? "scrolled" : ""
+                  }`}
+                  onClick={() => {
+                    navigate("/login");
+                  }}
                 >
                   Login
                 </Button>
                 <Button
                   to="/signup"
-                  className={`custom-navbar-link navbar-buttons shadow me-2 ${navbarScroll ? "scrolled" : ""}`}
-                  onClick={() => { navigate('/signup') }}
+                  className={`custom-navbar-link navbar-buttons shadow me-2 ${
+                    navbarScroll ? "scrolled" : ""
+                  }`}
+                  onClick={() => {
+                    navigate("/signup");
+                  }}
                 >
                   Signup
                 </Button>
@@ -83,7 +93,7 @@ const NavigationBar = () => {
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar >
+    </Navbar>
   );
 };
 
