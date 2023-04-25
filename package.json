@@ -21,9 +21,6 @@
   },
   "homepage": "https://github.com/ayush0402/mood-journal#readme",
   "dependencies": {
-    "@fullcalendar/core": "^6.1.5",
-    "@fullcalendar/daygrid": "^6.1.5",
-    "@fullcalendar/react": "^6.1.5",
     "apos-to-lex-form": "^1.0.5",
     "body-parser": "^1.20.2",
     "concurrently": "^7.6.0",
@@ -31,13 +28,10 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "firebase-admin": "^11.5.0",
-    "lottie-web": "^5.11.0",
     "mongoose": "^7.0.2",
     "morgan": "^1.10.0",
     "natural": "^6.2.0",
     "openai": "^3.2.1",
-    "react-apexcharts": "^1.4.0",
-    "recharts": "^2.5.0",
     "spelling-corrector": "^3.0.0",
     "stopword": "^2.0.8"
   }
