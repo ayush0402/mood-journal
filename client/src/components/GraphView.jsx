@@ -32,9 +32,6 @@ const GraphView = ({ posts }) => {
     let sentimentAverage = sentimentSum / sentimentArray.length || 0;
     xAxisData.push(key);
     yAxisData.push(sentimentAverage.toFixed(2));
-    console.log(sentimentArray);
-    console.log(sentimentSum);
-    console.log(sentimentAverage);
   }
 
   const options = {

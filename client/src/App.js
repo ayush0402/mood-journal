@@ -17,6 +17,7 @@ import Meditate from "./pages/dashboard/uplift/Meditate";
 
 import axios from "axios";
 import Insights from "./pages/dashboard/Insights";
+import Therapist from "./pages/dashboard/uplift/Therapist";
 function App() {
   axios.defaults.baseURL = "http://localhost:5000/";
 
@@ -89,6 +90,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Meditate />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/uplift/therapy"
+            element={
+              <ProtectedRoute>
+                <Therapist />
               </ProtectedRoute>
             }
           />

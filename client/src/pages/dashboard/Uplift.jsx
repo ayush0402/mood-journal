@@ -8,8 +8,11 @@ import Quotes from "../../components/Quotes";
 const Uplift = () => {
   let navigate = useNavigate();
 
-  let goMeditate = () => {
+  const goMeditate = () => {
     navigate("/dashboard/uplift/meditate");
+  };
+  const goTherapy = () => {
+    navigate("/dashboard/uplift/therapy");
   };
 
   return (
@@ -46,7 +49,7 @@ const Uplift = () => {
                 individuals in need. We leverage ChatGPT to help you out in most
                 human way possible.
               </p>
-              <Button>Therapist Bot</Button>
+              <Button onClick={goTherapy}>Therapist Bot</Button>
             </Col>
             <Col xs={12} md={6}>
               <img src={PsychologistImg} className="img-fluid" alt="" />
