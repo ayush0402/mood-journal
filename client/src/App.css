@@ -175,6 +175,29 @@ body {
   border-color: black;
 }
 
+.contact-section {
+  background-color: #f6e7d8;
+  min-height: 300px;
+  padding: 5%;
+}
+
+.contact-section Button {
+  margin-top: 10px;
+  color: black;
+  background-color: #f68989;
+  border-color: black;
+}
+
+.contact-section Button:hover {
+  background-color: #c65d78;
+  border-color: black;
+}
+
+.contact-section-image {
+  max-width: 50%;
+  margin-left: 20%;
+}
+
 .contact-section-text {
   margin: auto 0;
   padding-top: 9%;
