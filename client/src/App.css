@@ -156,27 +156,23 @@ body {
 
 /* Contact Section */
 
-.contact-section {
+.contact-us-container {
   background-color: #f6e7d8;
   min-height: 300px;
   padding: 5%;
 }
 
-.contact-section Button {
+.contact-us-container Button {
   margin-top: 10px;
   color: black;
   background-color: #f68989;
   border-color: black;
+  margin-bottom: 20px;
 }
 
-.contact-section Button:hover {
+.contact-us-container Button:hover {
   background-color: #c65d78;
   border-color: black;
-}
-
-.contact-section-image {
-  max-width: 50%;
-  margin-left: 20%;
 }
 
 .contact-section-text {
