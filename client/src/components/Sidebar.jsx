@@ -84,14 +84,14 @@ const Sidebar = ({
             Insights
             <NavLink to="/dashboard/insights" />
           </MenuItem>
-          <MenuItem
-            icon={<FaTachometerAlt />}
-            suffix={<span className="badge red">NEW</span>}
-          >
+          <MenuItem icon={<FaTachometerAlt />}>
             Uplift
             <NavLink to="/dashboard/uplift" />
           </MenuItem>
-          <MenuItem icon={<FaGem />}>
+          <MenuItem
+            icon={<FaGem />}
+            suffix={<span className="badge red">S.O.S.</span>}
+          >
             Resources <NavLink to="/dashboard/resources" />
           </MenuItem>
           <MenuItem icon={<FaGem />}>

@@ -16,7 +16,6 @@ import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../contexts/UserAuthContext";
 
 const Home = ({ testimonies }) => {
-
   const { user } = useUserAuth();
   let navigate = useNavigate();
 
@@ -35,11 +34,16 @@ const Home = ({ testimonies }) => {
               <p className="header-motto">
                 A digital way to track and uplift your mood.
               </p>
-              {user ? (<Button style={{ marginLeft: 10 }} onClick={() => {
-                navigate("/dashboard/write-new");
-              }}>
-                Dashboard
-              </Button>) :
+              {user ? (
+                <Button
+                  style={{ marginLeft: 10 }}
+                  onClick={() => {
+                    navigate("/dashboard/write-new");
+                  }}
+                >
+                  Dashboard
+                </Button>
+              ) : (
                 <div className="header-buttons">
                   <Button
                     onClick={() => {
@@ -51,7 +55,8 @@ const Home = ({ testimonies }) => {
                   <Button style={{ marginLeft: 10 }} onClick={goSignUp}>
                     Sign Up
                   </Button>
-                </div>}
+                </div>
+              )}
             </Col>
             <Col xs="12" lg="6">
               <img
@@ -107,12 +112,12 @@ const Home = ({ testimonies }) => {
       </section>
       <section className="testimonials">
         <ControlledCarousel testimonies={testimonies} />
-        <p className="testimonial-submit-text">
+        {/* <p className="testimonial-submit-text">
           Want to share your thoughts as well? Tell us more{" "}
           <NavLink className="testimonial-form-link" to="#">
             here.
           </NavLink>
-        </p>
+        </p> */}
       </section>
       <section className="contact-section">
         <Container>
