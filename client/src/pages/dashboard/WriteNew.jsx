@@ -1,7 +1,7 @@
 import DashboardLayout from "../../components/DashboardLayout";
 import WaveRobot from "../../components/animations/WaveRobot";
 import { useUserAuth } from "../../contexts/UserAuthContext";
-import { Card, Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Card, Row, Col, Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import axios from "axios";
@@ -35,6 +35,9 @@ const WriteNew = () => {
     } catch (error) {
       console.log("Error posting post data to the server", error);
     }
+    setTitle("");
+    setContent("");
+    alert("Post Submitted!");
   };
 
   return (
@@ -73,6 +76,7 @@ const WriteNew = () => {
                   <Form.Group className="mb-3" controlId="entryTitle">
                     <Form.Label>Title</Form.Label>
                     <Form.Control
+                      value={title}
                       type="text"
                       placeholder="Enter Title for your entry"
                       onChange={(event) => setTitle(event.target.value)}
@@ -81,6 +85,7 @@ const WriteNew = () => {
                   <Form.Group className="mb-3" controlId="textEntry">
                     <Form.Label>How was your day?</Form.Label>
                     <Form.Control
+                      value={content}
                       as="textarea"
                       placeholder="How was your day?"
                       rows={14}
